@@ -33,9 +33,11 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			libraries: '',
+			libraries: [],
 			lat: '',
-			lng: ''
+			lng: '',
+			concerts: [],
+
 		}
 	}
 	setLatLng = (lat, lng) => {
@@ -50,11 +52,18 @@ class App extends Component {
 			libraries
 		})
 	}
+
+	setConcerts = (concerts) => {
+		this.setState({
+			concerts
+		})
+	}
+
 	render() {
 		return (
 			<Router>
 				<div className="App">
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng}/>}/>
+					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng} setConcerts={this.setConcerts}/>}/>
 					<Route exact path="/:latlong" component={Results}/>
 				</div>
 			</Router>
