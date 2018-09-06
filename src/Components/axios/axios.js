@@ -29,3 +29,30 @@ export const getLatLong = (address) => {
     }
   })
 }
+
+export const getLibraries = (latLong) => {
+  return axios({
+    url: 'https://proxy.hackeryou.com',
+    method: 'GET',
+    dataResponse: 'json',
+    paramsSerializer: function (params) {
+      return Qs.stringify(params, {
+        arrayFormat: 'brackets'
+      })
+    },
+    params: {
+      reqUrl: googleNearbyUrl,
+      params: {
+        key: googleApiKey,
+        location: latLong,
+        radius: 4000,
+        keyword: 'library',
+        type: 'library',
+      },
+      proxyHeaders: {
+        'header_params': 'value'
+      },
+      xmlToJSON: false
+    }
+  })
+}

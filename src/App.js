@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
 
 // COMPONENTS
-import Search from './Components/search/Search';
 import GoogleMapsContainer from './Components/GoogleMapsContainer';
-
-// CALLS
-import {getLatLong} from './Components/axios/axios'
-
+import Home from './Components/home/Home';
+import Results from './Components/results/Results';
+import Search from './Components/search/Search';
 
 // class App extends Component {
 //   render() {
@@ -20,28 +19,38 @@ import {getLatLong} from './Components/axios/axios'
 //       </div>
 //     );
 //   }
+	// returnLatLong = (address) => {
+	// 	//Pass the address to the axios call which is broken up into its own component.
+	// 	getLatLong(address).then(({data}) => {
+	// 		const geoData = data.results[0].geometry.location;
+	// 		this.setState({
+	// 			latLong: `${geoData.lat}, ${geoData.lng}`,
+	// 		})
+	// 	});
+	// }
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			latLong: '',
+			libraries: '',
 		}
 	}
-	returnLatLong = (address) => {
-		//Pass the address to the axios call which is broken up into its own component.
-		getLatLong(address).then(({data}) => {
-			const geoData = data.results[0].geometry.location;
-			this.setState({
-				latLong: `${geoData.lat}, ${geoData.lng}`,
-			})
-		});
+	setLibraries = (libraries) => {
+		console.log('set libraries is called');
+		this.setState({
+			libraries
+		})
 	}
 	render() {
 		return (
-		<div className="App">
-			<Search returnLatLong={this.returnLatLong}/>
-		</div>
+			<Router>
+				<div className="App">
+					{/* <Search returnLatLong={this.returnLatLong}/> */}
+					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} />}/>
+					<Route exact path="/:latlong" component={Results}/>
+				</div>
+			</Router>
 		);
 	}
 }
