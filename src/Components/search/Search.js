@@ -8,7 +8,8 @@ class Search extends Component {
 			super(props);
 			this.state = {
 					location: '',
-					latLong: '',
+					lat: '',
+					lng: '',
 					libraries: [],
 			}  
 	}
@@ -17,14 +18,18 @@ class Search extends Component {
 		getLatLong(address).then(({data}) => {
 			const geoData = data.results[0].geometry.location;
 			this.setState({
-				latLong: `${geoData.lat}, ${geoData.lng}`,
+				lat: geoData.lat,
+				lng: geoData.lng
 			})
-			this.returnLibraries(this.state.latLong);
+			this.returnLibraries(this.state.lat, this.state.lng);
+			this.props.setLatLng(this.state.lat, this.state.lng);
 		});
 	}
-	returnLibraries = (latLong) => {
+	returnLibraries = (lat,lng) => {
+		console.log('return libraris is called');
+		console.log(lat,lng);
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
-		getLibraries(latLong).then(({data}) => {
+		getLibraries(lat,lng).then(({data}) => {
 			this.setState({
 				libraries: data.results,
 			})
@@ -38,7 +43,7 @@ class Search extends Component {
 	}
 	handleSubmit = (e) => {
 			e.preventDefault();
-			//Pass the state to the getLatLong function in App.js
+			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
 			this.returnLatLong(this.state.location);
 	}
 	render() {

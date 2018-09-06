@@ -34,7 +34,15 @@ class App extends Component {
 		super();
 		this.state = {
 			libraries: '',
+			lat: '',
+			lng: ''
 		}
+	}
+	setLatLng = (lat, lng) => {
+		this.setState({
+			lat,
+			lng
+		})
 	}
 	setLibraries = (libraries) => {
 		//Function to set the state of libraries. it is called in search.js returnLibraries function
@@ -46,8 +54,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					{/* <Search returnLatLong={this.returnLatLong}/> */}
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} />}/>
+					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng}/>}/>
 					<Route exact path="/:latlong" component={Results}/>
 				</div>
 			</Router>

@@ -30,7 +30,7 @@ export const getLatLong = (address) => {
   })
 }
 
-export const getLibraries = (latLong) => {
+export const getLibraries = (lat, lng) => {
   return axios({
     url: 'https://proxy.hackeryou.com',
     method: 'GET',
@@ -44,7 +44,7 @@ export const getLibraries = (latLong) => {
       reqUrl: googleNearbyUrl,
       params: {
         key: googleApiKey,
-        location: latLong,
+        location: `${lat},${lng}`,
         radius: 4000,
         keyword: 'library',
         type: 'library',
