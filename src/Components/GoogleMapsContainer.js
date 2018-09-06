@@ -43,6 +43,8 @@ class GoogleMapsContainer extends React.Component {
             'marginRight': 'auto'
         }
 
+        const coolIcon = { url: '../styles/assets/cool.png', scaledSize: { width: 25, height: 25} };
+
         return (
             <Map
                 item
@@ -51,13 +53,16 @@ class GoogleMapsContainer extends React.Component {
                 google={this.props.google}
                 onClick={this.onMapClick}
                 zoom={14}
+                // this is important - *we have to pass down a center property from the parent component to the child component https://www.youtube.com/watch?v=N1J7Q1qJPQM 
                 initialCenter={{ lat: 39.648209, lng: -75.711185 }}
+                
             >
                 <Marker
                     onClick={this.onMarkerClick}
                     title={'Changing Colors Garage'}
                     position={{ lat: 39.648209, lng: -75.711185 }}
                     name={'Changing Colors Garage'}
+                    styles={coolIcon}
                 />
                 {/* <InfoWindow
                     marker={this.state.activeMarker}
