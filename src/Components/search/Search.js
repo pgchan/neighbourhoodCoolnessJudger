@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Calls
-import {getLatLong, getLibraries} from '../axios/axios'
+import {getLatLong, getLibraries, getConcerts} from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
@@ -11,6 +11,7 @@ class Search extends Component {
 					lat: '',
 					lng: '',
 					libraries: [],
+					concerts: [],
 			}  
 	}
 	returnLatLong = (address) => {
@@ -26,8 +27,6 @@ class Search extends Component {
 		});
 	}
 	returnLibraries = (lat,lng) => {
-		console.log('return libraris is called');
-		console.log(lat,lng);
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(lat,lng).then(({data}) => {
 			this.setState({
@@ -35,6 +34,15 @@ class Search extends Component {
 			})
 			this.props.setLibraries(this.state.libraries);
 		});
+		getConcerts().then(({data})=> {
+			console.log(data._embedded.events);
+
+			this.setState({
+				concerts: data._embedded.events
+			})
+			this.props.setConcerts(this.state.concerts)
+			
+		})
 	}
 	handleChange = (input) => {
 			this.setState({

@@ -4,6 +4,7 @@ import Qs from 'qs';
 const googleNearbyUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 const googleGeoCodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 const googleApiKey = 'AIzaSyAfczrbXkzBLOm5op0o4R96gdqjJaKHrm8';
+const ticketMasterApi = `PgwtJ22n7fmnNSg2GX7lG6HWnGA5I6Wq`
 
 
 export const getLatLong = (address) => {
@@ -53,6 +54,26 @@ export const getLibraries = (lat, lng) => {
         'header_params': 'value'
       },
       xmlToJSON: false
+    }
+  })
+}
+
+export const getConcerts = () => {
+  return axios({
+    url: 'https://app.ticketmaster.com/discovery/v2/events.json',
+    method: 'GET',
+    dataResponse: 'json', 
+    params: {
+      // latlong: `${lat},${long}`,
+      latlong: `43.6547394,-79.385519`,
+      radius: 4,
+      unit: 'km',
+      startDateTime: '2018-01-01T00:00:00Z',
+      endDateTime: '2018-12-31T00:00:00Z',
+      sort: 'date,asc',
+      size: 100,
+      classificationName: 'concert',
+      apikey: ticketMasterApi,
     }
   })
 }
