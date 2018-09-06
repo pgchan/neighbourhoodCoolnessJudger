@@ -37,7 +37,7 @@ class App extends Component {
 		}
 	}
 	setLibraries = (libraries) => {
-		console.log('set libraries is called');
+		//Function to set the state of libraries. it is called in search.js returnLibraries function
 		this.setState({
 			libraries
 		})

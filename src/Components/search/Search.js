@@ -23,7 +23,7 @@ class Search extends Component {
 		});
 	}
 	returnLibraries = (latLong) => {
-		console.log('return libraries is called');
+		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(latLong).then(({data}) => {
 			this.setState({
 				libraries: data.results,
