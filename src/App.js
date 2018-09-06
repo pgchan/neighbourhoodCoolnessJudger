@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './Components/Search';
 
-
+// COMPONENTS
+import Search from './Components/search/Search';
 import GoogleMapsContainer from './Components/GoogleMapsContainer';
+
+// CALLS
+import {getLatLong} from './Components/axios/axios'
 
 
 // class App extends Component {
@@ -19,17 +22,25 @@ import GoogleMapsContainer from './Components/GoogleMapsContainer';
 //   }
 
 class App extends Component {
-
-	
-	getSearchTerm = (e) => {
-		e.preventDefault();
-		console.log(e);
+	constructor() {
+		super();
+		this.state = {
+			latLong: '',
+		}
 	}
-
+	returnLatLong = (address) => {
+		//Pass the address to the axios call which is broken up into its own component.
+		getLatLong(address).then(({data}) => {
+			const geoData = data.results[0].geometry.location;
+			this.setState({
+				latLong: `${geoData.lat}, ${geoData.lng}`,
+			})
+		});
+	}
 	render() {
 		return (
 		<div className="App">
-			<Search/>
+			<Search returnLatLong={this.returnLatLong}/>
 		</div>
 		);
 	}
