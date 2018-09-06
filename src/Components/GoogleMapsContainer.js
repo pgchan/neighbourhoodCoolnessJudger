@@ -11,7 +11,7 @@ class GoogleMapsContainer extends React.Component {
         this.state = {
             showingInfoWindow: false,
             activeMarker: {},
-            selectedPlace: {}
+            selectedPlace: {},
         }
         // binding this to event-handler functions
         this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -24,8 +24,9 @@ class GoogleMapsContainer extends React.Component {
             activeMarker: marker,
             showingInfoWindow: true
         });
-    }
 
+    }
+    
     onMapClick = (props) => {
         if (this.state.showingInfoWindow) {
             this.setState({
@@ -33,6 +34,7 @@ class GoogleMapsContainer extends React.Component {
                 activeMarker: null
             });
         }
+        console.log(this.props.location);
     }
 
     render() {
@@ -43,8 +45,8 @@ class GoogleMapsContainer extends React.Component {
             'marginRight': 'auto'
         }
 
-        const coolIcon = { url: '../styles/assets/cool.png', scaledSize: { width: 25, height: 25} };
-
+        const coolIcon = { url: './styles/assets/cool.png', scaledSize: { width: 25, height: 25} };
+        console.log(this.props.location)
         return (
             <Map
                 item
@@ -53,14 +55,16 @@ class GoogleMapsContainer extends React.Component {
                 google={this.props.google}
                 onClick={this.onMapClick}
                 zoom={14}
-                // this is important - *we have to pass down a center property from the parent component to the child component https://www.youtube.com/watch?v=N1J7Q1qJPQM 
-                initialCenter={{ lat: 39.648209, lng: -75.711185 }}
+    
+    
+                initialCenter={this.props.location}
+               
                 
             >
                 <Marker
                     onClick={this.onMarkerClick}
                     title={'Changing Colors Garage'}
-                    position={{ lat: 39.648209, lng: -75.711185 }}
+                    // defaultCenter={{ lat: 43.6532, lng: 79.3832 }}
                     name={'Changing Colors Garage'}
                     styles={coolIcon}
                 />
