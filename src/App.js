@@ -54,7 +54,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng}/>}/>
+					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng}/>} />
 					<Route exact path="/:latlong" component={Results}/>
 				</div>
 			</Router>
