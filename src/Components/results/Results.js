@@ -24,9 +24,6 @@ class Results extends Component {
       })
     })
   }
-  // locationLibraryEvents = () => {
-    
-  // }
   render() {
   
     return (
