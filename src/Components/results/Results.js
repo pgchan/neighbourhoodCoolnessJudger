@@ -15,7 +15,6 @@ class Results extends Component {
   }
   getLibraryNames = () => {
     this.props.libraries.map((library) => {
-      console.log(library.name);
       const filteredEvents = this.props.libraryEvents.filter((libraryEvent) => {
         return  library.name.includes(libraryEvent.library);
       })
@@ -29,8 +28,7 @@ class Results extends Component {
     return (
       <div className="wrapper">
         <h1>Results Page</h1>
-
-        <GoogleMapsContainer location={this.props.location}/>
+        <GoogleMapsContainer location={this.props.location} libraries={this.props.libraries}/>
       </div>
     )
   }

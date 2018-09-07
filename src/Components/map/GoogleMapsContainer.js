@@ -4,6 +4,7 @@ import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 // import Paper from 'material-ui/Paper';
 // import Typography from 'material-ui/Typography';
 // import { typography } from 'material-ui/styles';
+const libraryMarkers = [];
 
 class GoogleMapsContainer extends React.Component {
     constructor(props) {
@@ -17,6 +18,9 @@ class GoogleMapsContainer extends React.Component {
         this.onMarkerClick = this.onMarkerClick.bind(this);
         this.onMapClick = this.onMapClick.bind(this);
     }
+    componentDidMount() {
+      this.getLibraryMarkerLocations();
+    }
 
     onMarkerClick = (props, marker, e) => {
         this.setState({
@@ -24,9 +28,7 @@ class GoogleMapsContainer extends React.Component {
             activeMarker: marker,
             showingInfoWindow: true
         });
-
     }
-    
     onMapClick = (props) => {
         if (this.state.showingInfoWindow) {
             this.setState({
@@ -35,6 +37,12 @@ class GoogleMapsContainer extends React.Component {
             });
         }
         console.log(this.props.location);
+    }
+    getLibraryMarkerLocations = () => {
+      this.props.libraries.map((place) => {
+        libraryMarkers.push(place.geometry.location);
+      })
+      console.log(libraryMarkers);
     }
 
     render() {
@@ -52,22 +60,25 @@ class GoogleMapsContainer extends React.Component {
 
         return (
             <Map
-                item
-                xs={12}
-                style={style}
-                google={this.props.google}
-                onClick={this.onMapClick}
-                zoom={14}
-    
-    
-                initialCenter={this.props.location}       
+              item
+              xs={12}
+              style={style}
+              google={this.props.google}
+              onClick={this.onMapClick}
+              zoom={14}
+              initialCenter={this.props.location}       
             >
-                <Marker
-                    onClick={this.onMarkerClick}
-                
-                    // icon={coolIcon}
+                {/* <Marker position={{lat:43.6532, lng:-79.3832}}/> */}
 
-             />
+              {libraryMarkers.map((place) => {
+                return (
+                  <Marker position={place}/>
+                )
+              })}
+
+              {/* // {lat:43.6532, lng:-79.3832} */}
+                  {/* // onClick={this.onMarkerClick}
+                    // icon={coolIcon} */}
                 <InfoWindow
                     marker={this.state.activeMarker}
                     visible={this.state.showingInfoWindow}
