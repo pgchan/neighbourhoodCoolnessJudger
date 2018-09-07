@@ -46,7 +46,6 @@ class GoogleMapsContainer extends React.Component {
         }
 
         const coolIcon = { url: './styles/assets/cool.png', scaledSize: { width: 25, height: 25} };
-        console.log(this.props.location)
         return (
             <Map
                 item
