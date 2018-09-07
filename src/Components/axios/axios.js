@@ -80,7 +80,7 @@ export const getConcerts = () => {
 
 export const getLibraryEvents = () => {
   return axios({
-    url: '/public/torontoPublicLibrary.json',
+    url: 'torontoPublicLibrary.json',
     method: 'GET',
     dataResponse: 'json'
   })
