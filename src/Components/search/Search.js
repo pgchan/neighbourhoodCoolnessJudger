@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+
 
 // Calls
 import {getLatLong, getLibraries, getConcerts} from '../axios/axios'
@@ -33,14 +35,14 @@ class Search extends Component {
 				libraries: data.results,
 			})
 			this.props.setLibraries(this.state.libraries);
+			console.log(this.state.libraries);
 		});
 		getConcerts().then(({data})=> {
-			console.log(data._embedded.events);
-
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
+			console.log(this.state.concerts);
 			
 		})
 	}
