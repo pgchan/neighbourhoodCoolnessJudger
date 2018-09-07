@@ -5,6 +5,7 @@ import './App.css';
 // COMPONENTS
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
+import { getLibraryEvents } from './Components/axios/axios';
 
 
 class App extends Component {
@@ -15,9 +16,19 @@ class App extends Component {
 			lat: '',
 			lng: '',
 			concerts: '',
+			libraryEvents: [],
 
 		}
 	}
+
+	componentDidMount() {
+		getLibraryEvents().then(({data}) => {
+			this.setState({
+				libraryEvents: data
+			})
+		})
+	}
+
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
@@ -35,7 +46,11 @@ class App extends Component {
 			concerts
 		})
 	}
+<<<<<<< HEAD
 	console.log(libraryData);
+=======
+
+>>>>>>> 6443c596b00e0b5e32d2ee5e61fccb87a5d8b724
 	render() {
 		const location = {
 			lat: this.state.lat,
