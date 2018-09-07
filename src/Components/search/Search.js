@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
 // Calls
-import {getLatLong, getLibraries, getConcerts} from '../axios/axios'
+import { getLatLong, getLibraries, getConcerts, getLibraryEvents} from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
-			super(props);
-			this.state = {
-					location: '',
-					lat: '',
-					lng: '',
-					libraries: [],
-					concerts: [],
-			}  
+		super(props);
+		this.state = {
+				location: '',
+				lat: '',
+				lng: '',
+				libraries: [],
+				concerts: [],
+
+		}  
 	}
 	returnLatLong = (address) => {
 		//Pass the address to the axios call which is broken up into its own component.
@@ -34,34 +35,33 @@ class Search extends Component {
 			})
 			this.props.setLibraries(this.state.libraries);
 		});
-		getConcerts().then(({data})=> {
+		getConcerts().then(({data}) => {
 			console.log(data._embedded.events);
 
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
-			
 		})
 	}
 	handleChange = (input) => {
-			this.setState({
-					[input.target.id]: input.target.value
-			})
+		this.setState({
+			[input.target.id]: input.target.value
+		})
 	}
 	handleSubmit = (e) => {
-			e.preventDefault();
-			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
-			this.returnLatLong(this.state.location);
+		e.preventDefault();
+		//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
+		this.returnLatLong(this.state.location);
 	}
 	render() {
-			return (
-				<form className="search" onSubmit={this.handleSubmit}> 
-					<label htmlFor="search">Search</label>    
-					<input type="text" id="location" onChange={this.handleChange} placeholder="search for you address" className="search__bar" />
-					<input type="submit" className="" value="submit"/> 
-				</form>
-			);
+		return (
+			<form className="search" onSubmit={this.handleSubmit}> 
+				<label htmlFor="search">Search</label>    
+				<input type="text" id="location" onChange={this.handleChange} placeholder="search for you address" className="search__bar" />
+				<input type="submit" className="" value="submit"/> 
+			</form>
+		);
 	}
 }
 

@@ -17,7 +17,7 @@ class App extends Component {
 			lat: '',
 			lng: '',
 			concerts: [],
-
+			libraryEvents: [],
 		}
 	}
 
@@ -42,6 +42,12 @@ class App extends Component {
 		})
 	}
 
+	setEvents = (events) => {
+		this.setState({
+			events
+		})
+	}
+
 	render() {
 		const location = {
 			lat: this.state.lat,
@@ -51,7 +57,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng} setConcerts={this.setConcerts}/>}/>
+					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng} setConcerts={this.setConcerts} setEvents={this.setEvents}/>}/>
 					<Route exact path="/:latlong" component={Results}/>
 					{this.state.lat ? 
 					<GoogleMapsContainer lat={this.state.lat} location={location}/>
