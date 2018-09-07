@@ -48,7 +48,6 @@ class App extends Component {
 			concerts
 		})
 	}
-
 	render() {
 		const location = {
 			lat: this.state.lat,
@@ -63,6 +62,9 @@ class App extends Component {
 							<Route path="/" render={() => 
 								<Results
 									location={location}
+									libraries={this.state.libraries}
+									concerts={this.state.concerts}
+									libraryEvents={this.state.libraryEvents}
 								/>}
 							/> 
 					</main> :
