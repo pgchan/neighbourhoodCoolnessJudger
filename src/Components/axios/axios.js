@@ -4,7 +4,7 @@ import Qs from 'qs';
 const googleNearbyUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 const googleGeoCodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 const googleApiKey = 'AIzaSyAfczrbXkzBLOm5op0o4R96gdqjJaKHrm8';
-const ticketMasterApi = `PgwtJ22n7fmnNSg2GX7lG6HWnGA5I6Wq`
+const ticketMasterApi = 'PgwtJ22n7fmnNSg2GX7lG6HWnGA5I6Wq'
 
 
 export const getLatLong = (address) => {
@@ -47,7 +47,7 @@ export const getLibraries = (lat, lng) => {
         key: googleApiKey,
         location: `${lat},${lng}`,
         radius: 4000,
-        keyword: 'library',
+        keyword: 'toronto public library',
         type: 'library',
       },
       proxyHeaders: {
@@ -75,5 +75,13 @@ export const getConcerts = () => {
       classificationName: 'music',
       apikey: ticketMasterApi,
     }
+  })
+}
+
+export const getLibraryEvents = () => {
+  return axios({
+    url: 'torontoPublicLibrary.json',
+    method: 'GET',
+    dataResponse: 'json'
   })
 }

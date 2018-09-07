@@ -3,18 +3,19 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 
 // Calls
-import {getLatLong, getLibraries, getConcerts} from '../axios/axios'
+import { getLatLong, getLibraries, getConcerts, getLibraryEvents} from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
-			super(props);
-			this.state = {
-					location: '',
-					lat: '',
-					lng: '',
-					libraries: [],
-					concerts: [],
-			}  
+		super(props);
+		this.state = {
+				location: '',
+				lat: '',
+				lng: '',
+				libraries: [],
+				concerts: [],
+
+		}  
 	}
 	returnLatLong = (address) => {
 		//Pass the address to the axios call which is broken up into its own component.
@@ -35,7 +36,6 @@ class Search extends Component {
 				libraries: data.results,
 			})
 			this.props.setLibraries(this.state.libraries);
-			// console.log(this.state.libraries);
 		});
 
 
@@ -46,18 +46,17 @@ class Search extends Component {
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
-
 			const concertList = this.state.concerts;
-			
 		})
 	}
 
 	handleChange = (input) => {
-			this.setState({
-					[input.target.id]: input.target.value
-			})
+		this.setState({
+			[input.target.id]: input.target.value
+		})
 	}
 	handleSubmit = (e) => {
+
 			e.preventDefault();
 			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
 			this.returnLatLong(this.state.location);
