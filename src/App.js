@@ -6,56 +6,63 @@ import './App.css';
 import GoogleMapsContainer from './Components/map/GoogleMapsContainer';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
-import Search from './Components/search/Search';
 
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			libraries: [],
+			libraries: '',
 			lat: '',
 			lng: '',
-			concerts: [],
+			concerts: '',
 
 		}
 	}
-
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
 			lng
 		})
 	}
-
 	setLibraries = (libraries) => {
 		// Function to set the state of libraries. it is called in search.js returnLibraries function
 		this.setState({
 			libraries
 		})
 	}
-	
-
 	setConcerts = (concerts) => {
 		this.setState({
 			concerts
 		})
 	}
-
 	render() {
 		const location = {
 			lat: this.state.lat,
 			lng: this.state.lng
 		};
-
 		return (
 			<Router>
 				<div className="App">
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng} setConcerts={this.setConcerts}/>}/>
-					<Route exact path="/:latlong" component={Results}/>
-					{this.state.lat ? 
-					<GoogleMapsContainer lat={this.state.lat} location={location}/>
-					:null } 
+				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ? 
+					<Route exact path="/" render={() => 
+						<Results
+							location={location}
+						/>}
+					/> :
+					<Route exact path="/"  render={() => 
+						<Home 
+							setLibraries={this.setLibraries} 
+							setConcerts={this.setConcerts} 
+							setLatLng={this.setLatLng}
+						/>}
+					/> 
+				} 
+					
+
+					{/* {this.state.lat ? 
+					<GoogleMapsContainer location={location}/>
+					:null }  */}
 				</div>
 			</Router>
 		);
