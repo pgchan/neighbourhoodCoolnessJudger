@@ -72,7 +72,7 @@ export const getConcerts = () => {
       endDateTime: '2018-12-31T00:00:00Z',
       sort: 'date,asc',
       size: 100,
-      classificationName: 'concert',
+      classificationName: 'music',
       apikey: ticketMasterApi,
     }
   })
