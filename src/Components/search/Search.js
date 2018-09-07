@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+
 
 // Calls
 import { getLatLong, getLibraries, getConcerts, getLibraryEvents} from '../axios/axios'
@@ -34,14 +36,24 @@ class Search extends Component {
 				libraries: data.results,
 			})
 			this.props.setLibraries(this.state.libraries);
+			console.log(this.state.libraries);
 		});
+<<<<<<< HEAD
 		getConcerts().then(({data}) => {
 			console.log(data._embedded.events);
 
+=======
+		getConcerts().then(({data})=> {
+>>>>>>> 0932d3a0821df0d905c55d694085896ad8b1e323
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
+<<<<<<< HEAD
+=======
+			console.log(this.state.concerts);
+			
+>>>>>>> 0932d3a0821df0d905c55d694085896ad8b1e323
 		})
 	}
 	handleChange = (input) => {

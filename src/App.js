@@ -1,67 +1,65 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 // COMPONENTS
-import GoogleMapsContainer from './Components/map/GoogleMapsContainer';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
-import Search from './Components/search/Search';
 
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			libraries: [],
+			libraries: '',
 			lat: '',
 			lng: '',
-			concerts: [],
-			libraryEvents: [],
+			concerts: '',
+
 		}
 	}
-
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
 			lng
 		})
 	}
-
 	setLibraries = (libraries) => {
 		// Function to set the state of libraries. it is called in search.js returnLibraries function
 		this.setState({
 			libraries
 		})
 	}
-	
-
 	setConcerts = (concerts) => {
 		this.setState({
 			concerts
 		})
 	}
-
-	setEvents = (events) => {
-		this.setState({
-			events
-		})
-	}
-
 	render() {
 		const location = {
 			lat: this.state.lat,
 			lng: this.state.lng
 		};
-
 		return (
 			<Router>
 				<div className="App">
-					<Route exact path="/"  render={() => <Search setLibraries={this.setLibraries} setLatLng={this.setLatLng} setConcerts={this.setConcerts} setEvents={this.setEvents}/>}/>
-					<Route exact path="/:latlong" component={Results}/>
-					{this.state.lat ? 
-					<GoogleMapsContainer lat={this.state.lat} location={location}/>
-					:null } 
+				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
+					<main className="results">
+						<Redirect to="/location" />
+							<Route path="/location" render={() => 
+								<Results
+									location={location}
+								/>}
+							/> 
+					</main> :
+					<Route exact path="/"  render={() => 
+						<Home 
+							setLibraries={this.setLibraries} 
+							setConcerts={this.setConcerts} 
+							setLatLng={this.setLatLng}
+						/>}
+					/> 
+				} 
 				</div>
 			</Router>
 		);
