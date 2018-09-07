@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 // COMPONENTS
-import GoogleMapsContainer from './Components/map/GoogleMapsContainer';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 
