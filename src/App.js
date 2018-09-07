@@ -35,6 +35,7 @@ class App extends Component {
 			concerts
 		})
 	}
+	console.log(libraryData);
 	render() {
 		const location = {
 			lat: this.state.lat,
