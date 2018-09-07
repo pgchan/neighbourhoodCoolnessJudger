@@ -6,7 +6,7 @@ import './App.css';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 import ConcertList from './Components/ConcertList/ConcertList';
-
+import { getLibraryEvents } from './Components/axios/axios';
 
 class App extends Component {
 	constructor() {
@@ -16,9 +16,19 @@ class App extends Component {
 			lat: '',
 			lng: '',
 			concerts: '',
+			libraryEvents: [],
 
 		}
 	}
+
+	componentDidMount() {
+		getLibraryEvents().then(({data}) => {
+			this.setState({
+				libraryEvents: data
+			})
+		})
+	}
+
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
@@ -50,8 +60,10 @@ class App extends Component {
 							<Route path="/" render={() => 
 								<Results
 									location={location}
-
 									concerts={this.state.concerts}
+									libraries={this.state.libraries}
+									concerts={this.state.concerts}
+									libraryEvents={this.state.libraryEvents}
 								/>}
 							/> 
 					</main> :
