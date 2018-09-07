@@ -65,11 +65,8 @@ class GoogleMapsContainer extends React.Component {
             >
                 <Marker
                     onClick={this.onMarkerClick}
-                   
-                    // defaultCenter={{ lat: 43.6532, lng: 79.3832 }}
                 
-                    icon={coolIcon}
-               
+                    // icon={coolIcon}
 
              />
                 <InfoWindow
@@ -82,13 +79,13 @@ class GoogleMapsContainer extends React.Component {
                             component='h4'
                         >
                             Changing Colors Garage
-            </Typography>
+                        </Typography>
                         <Typography
                             component='p'
                         >
                             98G Albe Dr Newark, DE 19702 <br />
                             302-293-8627
-            </Typography>
+                        </Typography>
                     </Paper> */}
                 </InfoWindow>
             </Map>

@@ -35,17 +35,23 @@ class Search extends Component {
 				libraries: data.results,
 			})
 			this.props.setLibraries(this.state.libraries);
-			console.log(this.state.libraries);
+			// console.log(this.state.libraries);
 		});
+
+
+
+
 		getConcerts().then(({data})=> {
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
-			console.log(this.state.concerts);
+
+			const concertList = this.state.concerts;
 			
 		})
 	}
+
 	handleChange = (input) => {
 			this.setState({
 					[input.target.id]: input.target.value
@@ -55,14 +61,17 @@ class Search extends Component {
 			e.preventDefault();
 			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
 			this.returnLatLong(this.state.location);
+
 	}
 	render() {
 			return (
-				<form className="search" onSubmit={this.handleSubmit}> 
-					<label htmlFor="search">Search</label>    
-					<input type="text" id="location" onChange={this.handleChange} placeholder="search for you address" className="search__bar" />
-					<input type="submit" className="" value="submit"/> 
-				</form>
+				<div>
+					<form className="search" onSubmit={this.handleSubmit}> 
+						<label htmlFor="search">Search</label>    
+						<input type="text" id="location" onChange={this.handleChange} placeholder="search for you address" className="search__bar" />
+						<input type="submit" className="" value="submit"/> 
+					</form>
+				</div>
 			);
 	}
 }

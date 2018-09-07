@@ -5,6 +5,7 @@ import './App.css';
 // COMPONENTS
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
+import ConcertList from './Components/ConcertList/ConcertList';
 
 
 class App extends Component {
@@ -45,10 +46,12 @@ class App extends Component {
 				<div className="App">
 				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 					<main className="results">
-						<Redirect to="/location" />
-							<Route path="/location" render={() => 
+						{/* <Redirect to="/location" /> */}
+							<Route path="/" render={() => 
 								<Results
 									location={location}
+
+									concerts={this.state.concerts}
 								/>}
 							/> 
 					</main> :
