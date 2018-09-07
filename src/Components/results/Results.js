@@ -19,7 +19,9 @@ class Results extends Component {
       const filteredEvents = this.props.libraryEvents.filter((libraryEvent) => {
         return  library.name.includes(libraryEvent.library);
       })
-      console.log(filteredEvents);
+      this.setState({
+        libraryEvents: filteredEvents,
+      })
     })
   }
   // locationLibraryEvents = () => {
