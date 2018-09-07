@@ -7,7 +7,7 @@ class Results extends Component {
   }
   render() {
     return (
-      <div class="wrapper">
+      <div className="wrapper">
         <h1>Results Page</h1>
         <GoogleMapsContainer location={this.props.location}/>
       </div>

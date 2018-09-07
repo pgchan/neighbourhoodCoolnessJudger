@@ -23,6 +23,8 @@ class App extends Component {
 
 	componentDidMount() {
 		getLibraryEvents().then(({data}) => {
+			console.log(data);
+
 			this.setState({
 				libraryEvents: data
 			})
@@ -57,8 +59,8 @@ class App extends Component {
 				<div className="App">
 				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 					<main className="results">
-						<Redirect to="/location" />
-							<Route path="/location" render={() => 
+						{/* <Redirect to="/location" /> */}
+							<Route path="/" render={() => 
 								<Results
 									location={location}
 								/>}
