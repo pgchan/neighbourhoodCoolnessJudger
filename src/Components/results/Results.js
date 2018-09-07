@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
+import LibraryList from '../../LibraryList/LibraryList';
 
 class Results extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Results extends Component {
     return (
       <div className="wrapper">
         <h1>Results Page</h1>
-
+        <LibraryList libraryEvents={this.state.libraryEvents}/>
         <GoogleMapsContainer location={this.props.location}/>
       </div>
     )

@@ -16,8 +16,7 @@ class ConcertList extends Component {
 
                         return (
                             <ul>
-                                <li>{concert.name}</li>
-                                <li>{concert.url}</li>
+                                <li><a href={concert.url} target="_blank">{concert.name}</a></li>
                                 <li>{concert.dates.start.localDate}, {concert.dates.start.localTime}</li>
                             </ul>
                         )
