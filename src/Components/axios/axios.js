@@ -47,7 +47,7 @@ export const getLibraries = (lat, lng) => {
         key: googleApiKey,
         location: `${lat},${lng}`,
         radius: 4000,
-        keyword: 'library',
+        keyword: 'toronto public library',
         type: 'library',
       },
       proxyHeaders: {

@@ -46,7 +46,6 @@ class App extends Component {
 			concerts
 		})
 	}
-
 	render() {
 		const location = {
 			lat: this.state.lat,
@@ -57,10 +56,13 @@ class App extends Component {
 				<div className="App">
 				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 					<main className="results">
-						<Redirect to="/location" />
-							<Route path="/location" render={() => 
+						{/* <Redirect to="/location" /> */}
+							<Route path="/" render={() => 
 								<Results
 									location={location}
+									libraries={this.state.libraries}
+									concerts={this.state.concerts}
+									libraryEvents={this.state.libraryEvents}
 								/>}
 							/> 
 					</main> :

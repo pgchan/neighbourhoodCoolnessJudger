@@ -36,15 +36,12 @@ class Search extends Component {
 				libraries: data.results,
 			})
 			this.props.setLibraries(this.state.libraries);
-			console.log(this.state.libraries);
 		});
 		getConcerts().then(({data})=> {
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
-			console.log(this.state.concerts);
-			
 		})
 	}
 	handleChange = (input) => {
