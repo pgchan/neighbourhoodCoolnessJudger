@@ -7,10 +7,10 @@ class Results extends Component {
   }
   render() {
     return (
-      <main className="results">
+      <div class="wrapper">
         <h1>Results Page</h1>
         <GoogleMapsContainer location={this.props.location}/>
-      </main>
+      </div>
     )
   }
 }

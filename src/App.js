@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 // COMPONENTS
@@ -44,12 +44,15 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ? 
-					<Route exact path="/" render={() => 
-						<Results
-							location={location}
-						/>}
-					/> :
+				{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
+					<main className="results">
+						<Redirect to="/location" />
+							<Route path="/location" render={() => 
+								<Results
+									location={location}
+								/>}
+							/> 
+					</main> :
 					<Route exact path="/"  render={() => 
 						<Home 
 							setLibraries={this.setLibraries} 
@@ -58,11 +61,6 @@ class App extends Component {
 						/>}
 					/> 
 				} 
-					
-
-					{/* {this.state.lat ? 
-					<GoogleMapsContainer location={location}/>
-					:null }  */}
 				</div>
 			</Router>
 		);
