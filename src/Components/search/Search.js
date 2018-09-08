@@ -24,6 +24,7 @@ class Search extends Component {
 				lng: geoData.lng
 			})
 			this.returnLibraries(this.state.lat, this.state.lng);
+			this.returnConcerts(this.state.lat, this.state.lng);
 			this.props.setLatLng(this.state.lat, this.state.lng);
 		});
 	}
@@ -35,12 +36,14 @@ class Search extends Component {
 			})
 			this.props.setLibraries(this.state.libraries);
 		});
-		getConcerts().then(({data})=> {
+	}
+	returnConcerts = (lat,lng) => {
+		getConcerts(lat,lng).then(({data}) => {
 			this.setState({
 				concerts: data._embedded.events
 			})
 			this.props.setConcerts(this.state.concerts)
-			const concertList = this.state.concerts;
+			// const concertList = this.state.concerts;
 		})
 	}
 

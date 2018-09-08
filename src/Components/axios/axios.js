@@ -31,7 +31,7 @@ export const getLatLong = (address) => {
   })
 }
 
-export const getLibraries = (lat, lng) => {
+export const getLibraries = (lat,lng) => {
   return axios({
     url: 'https://proxy.hackeryou.com',
     method: 'GET',
@@ -58,14 +58,14 @@ export const getLibraries = (lat, lng) => {
   })
 }
 
-export const getConcerts = () => {
+export const getConcerts = (lat,lng) => {
   return axios({
     url: 'https://app.ticketmaster.com/discovery/v2/events.json',
     method: 'GET',
     dataResponse: 'json', 
     params: {
-      // latlong: `${lat},${long}`,
-      latlong: `43.6547394,-79.385519`,
+      latlong: `${lat},${lng}`,
+      // latlong: `43.6547394,-79.385519`,
       radius: 4,
       unit: 'km',
       startDateTime: '2018-01-01T00:00:00Z',
