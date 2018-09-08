@@ -18,9 +18,9 @@ class GoogleMapsContainer extends React.Component {
         this.onMarkerClick = this.onMarkerClick.bind(this);
         this.onMapClick = this.onMapClick.bind(this);
     }
-    componentDidMount() {
-      this.getLibraryMarkerLocations();
-    }
+    // componentDidMount() {
+    //   this.getLibraryMarkerLocations();
+    // }
 
     onMarkerClick = (props, marker, e) => {
         this.setState({
@@ -38,12 +38,12 @@ class GoogleMapsContainer extends React.Component {
         }
         console.log(this.props.location);
     }
-    getLibraryMarkerLocations = () => {
-      this.props.libraries.map((place) => {
-        libraryMarkers.push(place.geometry.location);
-      })
-      console.log(libraryMarkers);
-    }
+    // getLibraryMarkerLocations = () => {
+    //   this.props.libraries.map((place) => {
+    //     libraryMarkers.push(place.geometry.location);
+    //   })
+    //   console.log(libraryMarkers);
+    // }
 
     render() {
         const style = {
@@ -70,11 +70,11 @@ class GoogleMapsContainer extends React.Component {
             >
                 {/* <Marker position={{lat:43.6532, lng:-79.3832}}/> */}
 
-              {libraryMarkers.map((place) => {
+              {/* {libraryMarkers.map((place) => {
                 return (
                   <Marker position={place}/>
                 )
-              })}
+              })} */}
 
               {/* // {lat:43.6532, lng:-79.3832} */}
                   {/* // onClick={this.onMarkerClick}

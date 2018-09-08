@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-
 
 // Calls
-import { getLatLong, getLibraries, getConcerts, getLibraryEvents} from '../axios/axios'
+import { getLatLong, getLibraries, getConcerts } from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
@@ -37,10 +35,6 @@ class Search extends Component {
 			})
 			this.props.setLibraries(this.state.libraries);
 		});
-
-
-
-
 		getConcerts().then(({data})=> {
 			this.setState({
 				concerts: data._embedded.events
