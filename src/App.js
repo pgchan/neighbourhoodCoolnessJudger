@@ -33,7 +33,6 @@ class App extends Component {
 		})
 	}
 	setLibraries = (libraries) => {
-		// Function to set the state of libraries. it is called in search.js returnLibraries function
 		this.setState({
 			libraries
 		})

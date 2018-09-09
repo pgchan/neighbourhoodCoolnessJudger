@@ -59,7 +59,11 @@ class Results extends Component {
             />
 
             <Route exact path="/" render={() => 
-              <GoogleMapsContainer location={this.props.location}/> }
+              <GoogleMapsContainer 
+                location={this.props.location}
+                libraries={this.props.libraries}
+                concerts={this.props.concerts}  
+              />}
             />
           </div>
           

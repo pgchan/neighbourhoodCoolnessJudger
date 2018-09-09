@@ -39,11 +39,16 @@ class Search extends Component {
 	}
 	returnConcerts = (lat,lng) => {
 		getConcerts(lat,lng).then(({data}) => {
-			this.setState({
-				concerts: data._embedded.events
-			})
+			if (data._embedded) {
+				this.setState({
+					concerts: data._embedded.events
+				})
+			} else {
+				this.setState({
+					concerts: 'There are no concerts in this area.'
+				})
+			}
 			this.props.setConcerts(this.state.concerts)
-			// const concertList = this.state.concerts;
 		})
 	}
 
