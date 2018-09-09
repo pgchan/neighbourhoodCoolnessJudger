@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
+import LibraryList from '../../LibraryList/LibraryList';
 
 class Results extends Component {
   constructor(props) {
@@ -43,8 +43,13 @@ class Results extends Component {
           <h1>Results Page</h1>
           <div className="resultsContainer">
             
-            <Link to="/concerts">Concert Listing</Link>
-            <Link to="/libraries">Library Events</Link>
+            <div className="concertListLink">
+              <Link to="/concerts">Concert Listing</Link>
+            </div>
+            
+            <div className="libraryListLink">
+              <Link to="/libraries">Library Events</Link>
+            </div>
             
             <Route exact path="/concerts" render={() => 
               <ConcertList
@@ -66,7 +71,6 @@ class Results extends Component {
               />}
             />
           </div>
-          
         </div>
       </Router >
     );

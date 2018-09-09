@@ -1,0 +1,49 @@
+.homeBackground {
+  background: url("./homeBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 0.1px;
+  padding-bottom: 0.1px; }
+
+.overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0, 0, 0.9) 90%);
+  height: 100vh;
+  padding-top: 0.1px; }
+
+.searchContainer {
+  margin-top: 70px;
+  text-align: center;
+  width: 50%; }
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+form {
+  margin-top: 25px; }
+
+#location {
+  padding: 10px 20px;
+  border: 1px solid white;
+  color: dimgray;
+  margin-right: 10px;
+  width: 50%;
+  position: relative; }
+
+#submit {
+  padding: 10px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px; }
+  #submit:hover {
+    background: #333333;
+    border: 1.5px solid #333333;
+    transition: ease all 0.5s;
+    box-shadow: 0 0 10px #B8ECD6; }

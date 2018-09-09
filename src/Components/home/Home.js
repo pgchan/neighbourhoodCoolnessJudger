@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Search from '../search/Search';
+import './Home.css';
 
 class Home extends Component {
   constructor(props) {
@@ -7,13 +8,15 @@ class Home extends Component {
   }
   render() {
     return(
-      <div>
-        <h1>Home</h1>
-        <Search 
-          setLibraries={this.props.setLibraries}
-          setConcerts={this.props.setConcerts}
-          setLatLng={this.props.setLatLng}
-        />
+      <div className="homeBackground">
+        <div className="overlay">
+          {/* <h1>Home</h1> */}
+          <Search 
+            setLibraries={this.props.setLibraries}
+            setConcerts={this.props.setConcerts}
+            setLatLng={this.props.setLatLng}
+          />
+        </div>
       </div>
     )
   }
