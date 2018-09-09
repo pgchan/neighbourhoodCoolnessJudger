@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import '../home/Home.css';
 
 
 // Calls
-import { getLatLong, getLibraries, getConcerts, getLibraryEvents} from '../axios/axios'
+import { getLatLong, getLibraries, getConcerts } from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
@@ -27,6 +26,7 @@ class Search extends Component {
 				lng: geoData.lng
 			})
 			this.returnLibraries(this.state.lat, this.state.lng);
+			this.returnConcerts(this.state.lat, this.state.lng);
 			this.props.setLatLng(this.state.lat, this.state.lng);
 		});
 	}
@@ -38,13 +38,19 @@ class Search extends Component {
 			})
 			this.props.setLibraries(this.state.libraries);
 		});
-
-		getConcerts().then(({data})=> {
-			this.setState({
-				concerts: data._embedded.events
-			})
+	}
+	returnConcerts = (lat,lng) => {
+		getConcerts(lat,lng).then(({data}) => {
+			if (data._embedded) {
+				this.setState({
+					concerts: data._embedded.events
+				})
+			} else {
+				this.setState({
+					concerts: 'There are no concerts in this area.'
+				})
+			}
 			this.props.setConcerts(this.state.concerts)
-			const concertList = this.state.concerts;
 		})
 	}
 

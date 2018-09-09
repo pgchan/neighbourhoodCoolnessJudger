@@ -6,8 +6,6 @@ import './setup.css';
 // COMPONENTS
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
-import ConcertList from './Components/ConcertList/ConcertList';
-// import LibraryList from './Components/LibraryList';
 import { getLibraryEvents } from './Components/axios/axios';
 
 class App extends Component {
@@ -22,7 +20,6 @@ class App extends Component {
 
 		}
 	}
-
 	componentDidMount() {
 		getLibraryEvents().then(({data}) => {
 			this.setState({
@@ -30,7 +27,6 @@ class App extends Component {
 			})
 		})
 	}
-
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
@@ -38,7 +34,6 @@ class App extends Component {
 		})
 	}
 	setLibraries = (libraries) => {
-		// Function to set the state of libraries. it is called in search.js returnLibraries function
 		this.setState({
 			libraries
 		})
