@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
-import LibraryList from '../../LibraryList/LibraryList';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import ConcertList from '../ConcertList/ConcertList';
+import LibraryList from '../../LibraryList/LibraryList';
 
 class Results extends Component {
   constructor(props) {
@@ -35,11 +36,18 @@ class Results extends Component {
         <div className="wrapper">
           <h1>Results Page</h1>
           <div className="resultsContainer">
-            <Link to="/ConcertList">Concert Listing</Link>
-            <Route exact path="/ConcertList" component={ConcertList} />
+            <div className="concertListLink">
+              <Link to="/ConcertList">Concert Listing</Link>
+              <Route exact path="/ConcertList" component={ConcertList} />
+            </div>
+            <div className="libraryListLink">
+              <Link to="/LibraryList">Library Listing</Link>
+              <Route exact path="/LibraryList" component={LibraryList} />
+            </div>
+
           </div>
           
-          <LibraryList libraryEvents={this.state.libraryEvents}/>
+          {/* <LibraryList libraryEvents={this.state.libraryEvents}/> */}
           <GoogleMapsContainer location={this.props.location} />
         </div>
       </Router >

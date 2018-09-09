@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GoogleMapsContainer from '../map/GoogleMapsContainer';
+// import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class ConcertList extends Component {
@@ -9,7 +9,7 @@ class ConcertList extends Component {
     render() {
         return (
             <Router>
-                {/* <Route exact path="/ConcertList" component={ConcertList} /> */}
+                <Route exact path="/ConcertList" component={ConcertList} />
                 <div className="wrapper">
                     <h1>Concert List</h1>
 

@@ -1,29 +1,119 @@
+// GLOBAL STYLES
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Playfair+Display:900');
 
-.App {
-  text-align: center;
+// Variables:
+$primaryColor: #2d2d2d;
+$secondaryColor: #F5F5F5;
+$thirdColor: #12886E;
+$fourthColor: #B8ECD6;
+$accentColor: #FED430;
+
+
+// Mixins:
+
+@mixin primaryFont($fontSize) {
+    font-size: $fontSize * 1px;
+    font-size: ($fontSize / 10) * 1rem;
+    font-family: 'Playfair Display', serif;
+} 
+
+@mixin secondaryFont($fontSize) {
+    font-size: $fontSize * 1px;
+    font-size: ($fontSize / 10) * 1rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+// General styles:
+.wrapper {
+    max-width: 1280px;
+    width: 85%;
+    margin: 0 auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+
+// Typography:
+body {
+    font-size: 62.5%;
+    letter-spacing: 1.1px;
 }
 
-.App-title {
-  font-size: 3em;
+h1 {
+    // text-transform: uppercase;
+    @include primaryFont(20);
 }
 
-.App-intro {
-  font-size: large;
+h1, 
+.searchInfo p {
+    color: $secondaryColor;
+    font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.searchInfo p {
+    @include secondaryFont(9);
+    line-height: 1.6;
+}
+
+.bold {
+    @include primaryFont(25);
+    font-weight: 700;
+    color: $accentColor;
+    text-transform: uppercase;
+}
+
+input#location,
+input#submit {
+    @include secondaryFont(9);
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 3px 3px 10px $fourthColor;
+    }
+}
+
+#submit {
+    background: black;
+    color: white;
+    border: 1.5px solid black;
+}
+
+
+// HEADER STYLES
+header {
+    height: 110px;
+    background: black;
+    position: relative;
+}
+
+.logoContainer::after {
+    content: url(styles/assets/logoYellow.svg);
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 23px;
+}
+
+
+// FOOTER STYLES
+footer {
+    background: black;
+    color: $accentColor;
+    @include primaryFont(9);
+
+    .footerWrapper {
+        display: float;
+        margin: 0 auto;
+        width: 90%;
+        padding-top: 10px;
+    }
+
+    p:first-child {
+        float: left;
+    }
+
+    p:last-child {
+        float: right;
+        @include secondaryFont(7);
+    }
 }

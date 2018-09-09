@@ -1,24 +1,80 @@
-.App {
-  text-align: center; }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Playfair+Display:900");
+.wrapper {
+  max-width: 1280px;
+  width: 85%;
+  margin: 0 auto; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
+body {
+  font-size: 62.5%;
+  letter-spacing: 1.1px; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white; }
+h1 {
+  font-size: 20px;
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif; }
 
-.App-title {
-  font-size: 3em; }
+h1,
+.searchInfo p {
+  color: #F5F5F5;
+  font-weight: 400; }
 
-.App-intro {
-  font-size: large; }
+.searchInfo p {
+  font-size: 9px;
+  font-size: 0.9rem;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+.bold {
+  font-size: 25px;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #FED430;
+  text-transform: uppercase; }
+
+input#location,
+input#submit {
+  font-size: 9px;
+  font-size: 0.9rem;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer; }
+  input#location:focus,
+  input#submit:focus {
+    box-shadow: 3px 3px 10px #B8ECD6; }
+
+#submit {
+  background: black;
+  color: white;
+  border: 1.5px solid black; }
+
+header {
+  height: 110px;
+  background: black;
+  position: relative; }
+
+.logoContainer::after {
+  content: url(styles/assets/logoYellow.svg);
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 23px; }
+
+footer {
+  background: black;
+  color: #FED430;
+  font-size: 9px;
+  font-size: 0.9rem;
+  font-family: 'Playfair Display', serif; }
+  footer .footerWrapper {
+    display: float;
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 10px; }
+  footer p:first-child {
+    float: left; }
+  footer p:last-child {
+    float: right;
+    font-size: 7px;
+    font-size: 0.7rem;
+    font-family: 'Open Sans', sans-serif; }
