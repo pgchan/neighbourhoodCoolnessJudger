@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import '../home/Home.css';
 
 
 // Calls
@@ -38,9 +39,6 @@ class Search extends Component {
 			this.props.setLibraries(this.state.libraries);
 		});
 
-
-
-
 		getConcerts().then(({data})=> {
 			this.setState({
 				concerts: data._embedded.events
@@ -64,11 +62,19 @@ class Search extends Component {
 	}
 	render() {
 			return (
-				<div>
+				<div className="searchContainer wrapper">
+					<div className="searchInfo">
+						<h1>Welcome to <br/><span className="bold">Hot Block.</span></h1>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti exercitationem repellendus beatae quia inventore, accusantium ratione aspernatur quos incidunt magnam iusto explicabo porro. Perspiciatis repellat, aliquid quod hic accusamus maiores?</p>
+					</div>
+
 					<form className="search" onSubmit={this.handleSubmit}> 
-						<label htmlFor="search">Search</label>    
-						<input type="text" id="location" onChange={this.handleChange} placeholder="search for you address" className="search__bar" />
-						<input type="submit" className="" value="submit"/> 
+						<label htmlFor="searchbar" className="visuallyHidden">Search</label>  
+			
+						<input type="text" id="location" onChange={this.handleChange} placeholder="Type in your address here..." className="searchbar" name="searchbar" />
+					
+						<label htmlFor="submit" className="visuallyHidden">Submit</label>
+						<input type="submit" id="submit" className="submit" value="Submit"/> 
 					</form>
 				</div>
 			);
