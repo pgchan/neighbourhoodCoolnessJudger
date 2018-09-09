@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
-import LibraryList from '../../LibraryList/LibraryList';
+// import LibraryList from '../../LibraryList/LibraryList';
 
 class Results extends Component {
   constructor(props) {
