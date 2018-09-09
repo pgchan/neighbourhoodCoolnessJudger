@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import LibraryMarkers from "./LibraryMarkers";
 import ConcertVenueMarkers from './ConcertVenueMarkers';
 
@@ -19,6 +19,7 @@ const GoogleMaps = withScriptjs(withGoogleMap((props) => {
   }
   return (
     <GoogleMap defaultZoom={12} center={props.location}>
+      <Marker position={props.location} />
       {libraryLocations}
       {concertVenueLocations}
     </GoogleMap>
