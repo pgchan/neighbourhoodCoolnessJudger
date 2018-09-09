@@ -4,8 +4,18 @@ import Qs from 'qs';
 const googleNearbyUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 const googleGeoCodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 const googleApiKey = 'AIzaSyAfczrbXkzBLOm5op0o4R96gdqjJaKHrm8';
-const ticketMasterApi = 'PgwtJ22n7fmnNSg2GX7lG6HWnGA5I6Wq'
+const ticketMasterApi = 'PgwtJ22n7fmnNSg2GX7lG6HWnGA5I6Wq';
 
+//Getting the day and one year later for the ticket master call.
+const currentDate = new Date();
+const currentDateString = currentDate.toISOString();
+const splitDate = currentDateString.split('.');
+const startDateTime = splitDate[0] + "Z";
+
+const nextYearDate = new Date().setFullYear(currentDate.getFullYear() + 1);
+const nextYearDateString = new Date(nextYearDate).toISOString();
+const splitNextYearDate = nextYearDateString.split('.');
+const endDateTime = splitNextYearDate[0] + "Z";
 
 export const getLatLong = (address) => {
   return axios({
@@ -65,11 +75,10 @@ export const getConcerts = (lat,lng) => {
     dataResponse: 'json', 
     params: {
       latlong: `${lat},${lng}`,
-      // latlong: `43.6547394,-79.385519`,
       radius: 4,
       unit: 'km',
-      startDateTime: '2018-01-01T00:00:00Z',
-      endDateTime: '2018-12-31T00:00:00Z',
+      startDateTime: startDateTime,
+      endDateTime: endDateTime,
       sort: 'date,asc',
       size: 100,
       classificationName: 'music',
