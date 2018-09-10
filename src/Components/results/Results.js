@@ -5,6 +5,7 @@ import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
 
 import './Results.css';
+import brush from './brush.png';
 
 class Results extends Component {
   constructor(props) {
@@ -74,24 +75,29 @@ class Results extends Component {
     return (
       <Router>
         <div className="resultsPage">
-          <div className="overlay">
-            <div className="wrapper">
-              <h2>The verdict is in.  Your block is...{this.state.neighbourhoodResult}</h2>
               <div className="headingContainer">
-                <h4>COOL or NOT COOL</h4>
+              <div className="wrapper">
+                <h2>The verdict is in.</h2>
+                <h4>{this.state.neighbourhoodResult}</h4>
+              </div>
               </div>
 
+            <div className="wrapper">
               <div className="resultsContainer">
+                {/* <div className="overlay">
+                  <img className="brush" src={brush} />
+                </div> */}
+                <h2>Your Neighbourhood</h2>
                 <div className="resultLinks clearfix">
                   <div className="concertListLink">
                     <Link className="linkText" to="/concerts">Concert Listing</Link>
                   </div>
-                  <div class="underbar"></div>
+                  
 
                   <div className="libraryListLink">
                     <Link className="linkText"  to="/libraries">Library Events</Link>
                   </div>
-                  <div class="underbar"></div>
+                 
                 </div>
                 
                 <Route exact path="/concerts" render={() => 
@@ -118,7 +124,6 @@ class Results extends Component {
               </div>
             </div>
           </div>
-        </div>
       </Router >
     );
   }

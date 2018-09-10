@@ -7,6 +7,7 @@ import './setup.css';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 import { getLibraryEvents } from './Components/axios/axios';
+import logoYellow from './styles/assets/logoYellow.png';
 // import Logo from './styles/assets/Logo';
 
 class App extends Component {
@@ -53,13 +54,11 @@ class App extends Component {
 			<Router>
 				<div className="App">
 
-					<header>
-						<div className="logoContainer wrapper">
-						</div>
-					</header>
-
 						{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 							<main className="results">
+							<div className="logoContainer wrapper">
+								<img className="logo" src={logoYellow} />
+							</div>
 								{/* <Redirect to="/location" /> */}
 									<Route path="/" render={() => 
 										<Results
@@ -71,15 +70,20 @@ class App extends Component {
 										/>}
 									/> 
 							</main> :
-								<div className="homeBackground">
-									<Route exact path="/"  render={() =>
-										<Home 
-											setLibraries={this.setLibraries} 
-											setConcerts={this.setConcerts} 
-											setLatLng={this.setLatLng}
-										/>}
-									/> 
+							<div className="homeBackground">
+							<header>
+								<div className="logoContainer wrapper">
+									<img className="logo" src={logoYellow} />
 								</div>
+							</header>
+								<Route exact path="/" render={() =>
+									<Home
+										setLibraries={this.setLibraries}
+										setConcerts={this.setConcerts}
+										setLatLng={this.setLatLng}
+									/>}
+								/>
+							</div>
 						}
 
 					<footer>

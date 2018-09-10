@@ -1,37 +1,38 @@
 .resultsPage {
-  background: url("./resultsBackground.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   text-align: center;
   margin: 0 auto;
-  padding: 25px 0;
   height: 140vh;
-  padding-top: 0.1px;
-  padding-bottom: 0.1px;
   color: white; }
-  .resultsPage .overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 80%, rgba(0, 0, 0, 0.95) 90%);
-    height: 140vh;
-    padding-top: 0.1px; }
-  .resultsPage h2 {
-    font-size: 13px;
-    font-size: 1.3rem;
-    font-family: 'Playfair Display', serif;
-    margin: 20px 0 0 0; }
-  .resultsPage h4 {
+  .resultsPage .headingContainer {
+    background: linear-gradient(rgba(19, 135, 110, 0.4), rgba(0, 0, 0, 0.8)), url("./resultsBackground.jpg");
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; }
+    .resultsPage .headingContainer h2 {
+      font-size: 20px;
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      margin-top: 150px; }
+    .resultsPage .headingContainer h4 {
+      font-size: 12px;
+      font-size: 1.2rem;
+      font-family: 'Open Sans', sans-serif;
+      margin-top: 13.5px;
+      font-weight: 400;
+      color: #F5F5F5;
+      max-width: 60%;
+      margin: 0 auto; }
+
+.resultsContainer {
+  margin-top: 50px; }
+  .resultsContainer h2 {
     font-size: 20px;
     font-size: 2rem;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 13.5px;
-    font-weight: 400;
-    color: white; }
-
-.mapContainer {
-  margin: 0 auto;
-  text-align: center;
-  margin: 50px 0;
-  clear: both; }
+    font-family: 'Playfair Display', serif;
+    color: #2d2d2d; }
 
 .resultLinks {
   display: float;
@@ -44,10 +45,11 @@
   .resultLinks .linkText {
     font-size: 10px;
     font-size: 1rem;
-    font-family: 'Playfair Display', serif;
-    color: #FED430;
+    font-family: 'Open Sans', sans-serif;
+    color: #2d2d2d;
+    font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
     -webkit-transition: 0.5s ease; }
     .resultLinks .linkText:hover {
-      color: white; }
+      color: #B8ECD6; }
