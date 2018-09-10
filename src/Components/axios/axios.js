@@ -46,7 +46,7 @@ export const getLibraries = (lat,lng) => {
       params: {
         key: googleApiKey,
         location: `${lat},${lng}`,
-        radius: 4000,
+        radius: 3000,
         keyword: 'toronto public library',
         type: 'library',
       },
@@ -71,9 +71,10 @@ export const getConcerts = (lat,lng) => {
       startDateTime: '2018-01-01T00:00:00Z',
       endDateTime: '2018-12-31T00:00:00Z',
       sort: 'date,asc',
-      size: 100,
+      size: 200,
       classificationName: 'music',
       apikey: ticketMasterApi,
+      // page: 0
     }
   })
 }

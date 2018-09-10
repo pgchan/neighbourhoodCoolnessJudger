@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 
 class LibraryList extends Component {
   constructor(props) {
-    super (props)
+    super(props)
   }
   render() {
 
     return (
       <div className="wrapper">
         <h1>Library List</h1>
-
-        <div className="libraryResults"> 
+        <div className="libraryResults">
           {this.props.libraryEvents.map((library) => {
             return (
               <ul key={library.link}>

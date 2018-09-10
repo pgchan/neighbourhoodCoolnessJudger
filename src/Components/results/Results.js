@@ -10,10 +10,12 @@ class Results extends Component {
     super(props);
     this.state = {
       libraryEvents: [],
+      neighbourhoodResult: ''
     }
   }
   componentDidMount() {
-    this.getLibraryNames();  
+    this.getLibraryNames();
+    // this.coolnessCalculator(); 
   }
   getLibraryNames = () => {
     // I create an array called listOfLibraries which is empty.
@@ -31,18 +33,66 @@ class Results extends Component {
     const flatListOfLibraryEvents = listOfLibraryEvents.reduce((total, amount) => {
       return total.concat(amount);
     })
+    console.log(flatListOfLibraryEvents);
+    
+    
+    let coolOrUncool = ""
+    let numberOfLocalLibraryEvents = flatListOfLibraryEvents.length;
+    // this.coolnessCalculator(numberOfLocalLibraryEvents)
+    
+    console.log(`Number of local library events - ${numberOfLocalLibraryEvents}`);
+    let numberOfLocalConcerts = this.props.concerts.length;
+    console.log(`Number local concerts - ${numberOfLocalConcerts}`);
+    let concertLibraryEventsRatio = (`${numberOfLocalConcerts}` / 2) / numberOfLocalLibraryEvents;
+    console.log("ratio - " + concertLibraryEventsRatio );
+
+    if (concertLibraryEventsRatio < 1) {
+      coolOrUncool = "This place is really boring. There are way too many library events going on here."
+    } else if (concertLibraryEventsRatio === 1) {
+      coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here."
+    } else if (concertLibraryEventsRatio > 1 && concertLibraryEventsRatio < 2) {
+      coolOrUncool = "This place is boring. There are many library events going on here."
+    } else if (concertLibraryEventsRatio === 2) {
+      coolOrUncool = "This place is cool! Good amount of concerts!"
+    } else if (concertLibraryEventsRatio > 2 && concertLibraryEventsRatio <= 3) {
+      coolOrUncool = "This place is quite cool! A lot of concerts!"
+    } else if (concertLibraryEventsRatio > 3.1) {
+      coolOrUncool = "This place is really cool! A LOT of concerts!"
+    }
+
     //Set the state of the large combined array so that the library list can use it to display.
     this.setState({
       libraryEvents: flatListOfLibraryEvents,
+      neighbourhoodResult: coolOrUncool,
     })
   }
+
+
+
+  // coolnessCalculator = (x) => {
+  //   console.log("Ratio - " + x);
+    
+
+  // //   let localConcerts = this.props.concerts.length;
+  // //   console.log(`Number local concerts - ${localConcerts}`);
+
+  // //   // let localLibraryEvents = this.state.libraryEvents.length;
+  // //   // console.log(`Number of local library events - ${localLibraryEvents}`);
+  
+
+  // }
+
+
   render() {
     return (
       <Router>
         <div className="wrapper">
           <h1>Results Page</h1>
           <div className="resultsContainer">
-            
+            <div>
+              <h2>{this.state.neighbourhoodResult}</h2>
+            </div>
+
             <div className="concertListLink">
               <Link to="/concerts">Concert Listing</Link>
             </div>
