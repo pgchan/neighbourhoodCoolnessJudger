@@ -4,12 +4,15 @@ import LibraryMarkers from "./LibraryMarkers";
 import ConcertVenueMarkers from './ConcertVenueMarkers';
 
 const GoogleMaps = withScriptjs(withGoogleMap((props) => {
-
-  const libraryLocations = props.libraries.map((place) => {
-    return <LibraryMarkers location={place.geometry.location} library={place}/>
-  });
   
   let concertVenueLocations;
+  let libraryLocations;
+
+  if (Array.isArray(props.libraries)) {
+    libraryLocations = props.libraries.map((place) => {
+      return <LibraryMarkers location={place.geometry.location} library={place}/>
+    });
+  }
 
   if (Array.isArray(props.concerts)) {
     concertVenueLocations = props.concerts.map((venue) => {

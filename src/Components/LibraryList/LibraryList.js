@@ -10,7 +10,8 @@ class LibraryList extends Component {
       <div className="wrapper">
         <h1>Library List</h1>
         <div className="libraryResults">
-          {this.props.libraryEvents.map((library) => {
+          {Array.isArray(this.props.libraryEvents) ?
+            this.props.libraryEvents.map((library) => {
             return (
               <ul key={library.link}>
                 {/* <li><h2>{library.library}</h2></li> */}
@@ -19,7 +20,9 @@ class LibraryList extends Component {
                 <li>{library.library}</li>
               </ul>
             )
-          })}
+          })
+          : <h2>{this.props.libraries}</h2>
+          }
         </div>
       </div>
     )

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Marker, InfoWindow } from "react-google-maps";
 import nerdIcon from '../../styles/assets/nerd.png';
+import './map.css';
 
 class LibraryMarkers extends Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class LibraryMarkers extends Component {
     }
   }
   clickMarker = () => {
-   this.setState({
-     markerClick: true,
-   })
+    console.log(this.props.library.name); 
+    this.setState({
+      markerClick: true,
+    })
   }
   closeMarker = () => {
     this.setState({
@@ -29,8 +31,8 @@ class LibraryMarkers extends Component {
         {this.state.markerClick ?
           <InfoWindow onCloseClick={this.closeMarker}>
               <div>
-                <p>{this.props.library.name}</p>
-                <p>Address: {this.props.library.vicinity}</p>
+                <p className="info-window-blurb">{this.props.library.name}</p>
+                <p className="info-window-blurb">Address: {this.props.library.vicinity}</p>
               </div>
           </InfoWindow>
           : null

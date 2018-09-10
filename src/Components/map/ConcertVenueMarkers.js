@@ -30,8 +30,8 @@ class ConcertVenueMarkers extends Component {
         {this.state.markerClick ? 
           <InfoWindow>
             <div>
-              <p>{this.props.concertVenue._embedded.venues[0].name}</p>
-              <p>Address: {this.props.concertVenue._embedded.venues[0].address.line1}</p>
+              <p className="info-window-blurb">{this.props.concertVenue._embedded.venues[0].name}</p>
+              <p className="info-window-blurb">Address: {this.props.concertVenue._embedded.venues[0].address.line1}</p>
             </div>
           </InfoWindow>
          : null
