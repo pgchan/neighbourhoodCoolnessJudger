@@ -32,21 +32,16 @@ class Results extends Component {
     //Use Reduce to create a new array that combines all of the arrays into one large array so that we can map through it. 
     const flatListOfLibraryEvents = listOfLibraryEvents.reduce((total, amount) => {
       return total.concat(amount);
-    })
-    console.log(flatListOfLibraryEvents);
-    
+    })    
     // 1 concert = 5 libraries. 
     
     let coolOrUncool = ""
     let numberOfLocalLibraryEvents = flatListOfLibraryEvents.length;
     // this.coolnessCalculator(numberOfLocalLibraryEvents)
     
-    console.log(`Number of local library events - ${numberOfLocalLibraryEvents}`);
     let numberOfLocalConcerts = this.props.concerts.length;
-    console.log(`Number local concerts - ${numberOfLocalConcerts}`);
     // let concertLibraryEventsRatio = (`${numberOfLocalConcerts}` / 2) / numberOfLocalLibraryEvents;
     let concertLibraryEventsRatio = numberOfLocalConcerts / (`${numberOfLocalLibraryEvents}` / 5);
-    console.log("ratio - " + concertLibraryEventsRatio );
 
     if (concertLibraryEventsRatio < 0.5) {
       coolOrUncool = "This place is really boring. There are way too many library events going on here."
