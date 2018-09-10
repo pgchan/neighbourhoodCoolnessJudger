@@ -56,7 +56,7 @@ export const getLibraries = (lat,lng) => {
       params: {
         key: googleApiKey,
         location: `${lat},${lng}`,
-        radius: 4000,
+        radius: 3000,
         keyword: 'toronto public library',
         type: 'library',
       },
