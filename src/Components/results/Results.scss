@@ -21,47 +21,51 @@ $accentColor: #FED430;
 }
 
 .resultsPage {
-    background: url('./resultsBackground.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     text-align: center;
     margin: 0 auto;
-    padding: 25px 0;
     height: 140vh;
-    padding-top: 0.1px;
-    padding-bottom: 0.1px;
     color: white;
 
-    .overlay {
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 80%, rgba(0, 0,0, 0.95) 90%);
-        height: 140vh;
-        padding-top: 0.1px;
-    }
-   
-    h2 {
-        @include primaryFont(13);   
-        margin: 20px 0 0 0;
-    }
-
     .headingContainer {
-        // background: black;
-        // border: 1px solid $fourthColor;
-    }
+        background: linear-gradient(rgba(19, 135, 110, 0.4), rgba(0, 0, 0, 0.8)), url('./resultsBackground.jpg');
+        padding-top: 0.1px;
+        padding-bottom: 0.1px;
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
 
-    h4 {
-        @include secondaryFont(20);
-        margin-top: 13.5px;
-        font-weight: 400;
-        color: white;
+        h2 {
+            @include primaryFont(20);   
+            margin-top: 150px;
+
+         }
+
+        h4 {
+            @include secondaryFont(12);
+            margin-top: 13.5px;
+            font-weight: 400;
+            color: $secondaryColor;
+            max-width: 60%;
+            margin: 0 auto;
+        }
     }
 }
 
-.mapContainer {
-    margin: 0 auto;
-    text-align: center;
-    margin: 50px 0;
-    clear: both;
+// .mapContainer {
+//     margin: 0 auto;
+//     text-align: center;
+//     margin: 50px 0;
+//     clear: both;
+// }
+
+.resultsContainer {
+    margin-top: 50px;
+
+    h2 {
+        @include primaryFont(20); 
+        color: $primaryColor;
+    }
 }
 
 .resultLinks {
@@ -78,14 +82,15 @@ $accentColor: #FED430;
     }
 
     .linkText {
-        @include primaryFont(10);
-        color: $accentColor;
+        @include secondaryFont(10);
+        color: $primaryColor;
+        font-weight: 700;
         text-decoration: none;
         text-transform: uppercase;
         -webkit-transition: 0.5s ease;
 
         &:hover {
-            color: white;
+            color: $fourthColor;
         }
     }
     

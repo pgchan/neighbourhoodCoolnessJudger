@@ -68,7 +68,7 @@ h1,
 }
 
 .searchInfo p {
-    @include secondaryFont(9);
+    @include secondaryFont(9);  
     line-height: 1.6;
 }
 
@@ -82,20 +82,17 @@ h1,
 
 // HEADER STYLES
 header {
-    height: 110px;
+    height: 70px;
     background: black;
     position: relative;
 }
 
-.logoContainer::after {
-    content: url(styles/assets/logoYellow.svg);
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+.logo {
+    width: 70px;
+    height: 50px;
     position: absolute;
-    top: 19px;
+    top: 15px;
 }
-
 
 // FOOTER STYLES
 footer {
