@@ -73,36 +73,13 @@ class Results extends Component {
   render() {
     return (
       <Router>
-<<<<<<< HEAD
         <div className="resultsPage">
           <div className="overlay">
             <div className="wrapper">
-              <h2>The verdict is in.  Your block is...</h2>
+              <h2>The verdict is in.  Your block is...{this.state.neighbourhoodResult}</h2>
               <div className="headingContainer">
                 <h4>COOL or NOT COOL</h4>
               </div>
-=======
-        <div className="wrapper">
-          <h1>Results Page</h1>
-          <div className="resultsContainer">
-            <div>
-              <h2>{this.state.neighbourhoodResult}</h2>
-            </div>
-
-            <div className="concertListLink">
-              <Link to="/concerts">Concert Listing</Link>
-            </div>
-            
-            <div className="libraryListLink">
-              <Link to="/libraries">Library Events</Link>
-            </div>
-            
-            <Route exact path="/concerts" render={() => 
-              <ConcertList
-                concerts={this.props.concerts} 
-              />}
-            />
->>>>>>> f95055c8372311448fecdd562b9a6a21fdbeeb45
 
               <div className="resultsContainer">
                 <div className="resultLinks clearfix">
