@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
-// import LibraryList from '../../LibraryList/LibraryList';
+
+import './Results.css';
+import brush from './brush.png';
 
 class Results extends Component {
   constructor(props) {
@@ -97,26 +99,37 @@ class Results extends Component {
   render() {
     return (
       <Router>
-        <div className="wrapper">
-          <h1>Results Page</h1>
-          <div className="resultsContainer">
-            <div>
-              <h2>{this.state.neighbourhoodResult}</h2>
-            </div>
+        <div className="resultsPage">
+              <div className="headingContainer">
+              <div className="wrapper">
+                <h2>The verdict is in.</h2>
+                <h4>{this.state.neighbourhoodResult}</h4>
+              </div>
+              </div>
 
-            <div className="concertListLink">
-              <Link to="/concerts">Concert Listing</Link>
-            </div>
-            
-            <div className="libraryListLink">
-              <Link to="/libraries">Library Events</Link>
-            </div>
-            
-            <Route exact path="/concerts" render={() => 
-              <ConcertList
-                concerts={this.props.concerts} 
-              />}
-            />
+            <div className="wrapper">
+              <div className="resultsContainer">
+                {/* <div className="overlay">
+                  <img className="brush" src={brush} />
+                </div> */}
+                <h2>Your Neighbourhood</h2>
+                <div className="resultLinks clearfix">
+                  <div className="concertListLink">
+                    <Link className="linkText" to="/concerts">Concert Listing</Link>
+                  </div>
+                  
+
+                  <div className="libraryListLink">
+                    <Link className="linkText"  to="/libraries">Library Events</Link>
+                  </div>
+                 
+                </div>
+                
+                <Route exact path="/concerts" render={() => 
+                  <ConcertList
+                    concerts={this.props.concerts} 
+                  />}
+                />
 
             <Route exact path="/libraries" render={() => 
               <LibraryList
@@ -125,16 +138,19 @@ class Results extends Component {
               />}
             />
 
-            <Route exact path="/" render={() => 
-              <GoogleMapsContainer 
-                location={this.props.location}
-                libraries={this.props.libraries}
-                concerts={this.props.concerts}  
-              />}
-            />
+            <div className="mapCOntainer wrapper">
+              <Route exact path="/" render={() => 
+                <GoogleMapsContainer 
+                  location={this.props.location}
+                  libraries={this.props.libraries}
+                  concerts={this.props.concerts}  
+                />}
+              />
+            </div>
           </div>
         </div>
-      </Router >
+      </div>
+      </Router>
     );
   }
 }
