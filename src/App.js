@@ -7,6 +7,7 @@ import './setup.css';
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 import { getLibraryEvents } from './Components/axios/axios';
+// import Logo from './styles/assets/Logo';
 
 class App extends Component {
 	constructor() {

@@ -9,14 +9,17 @@ class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-				location: '',
-				lat: '',
-				lng: '',
-				libraries: [],
-				concerts: '',
+			location: '',
+			lat: '',
+			lng: '',
+			libraries: [],
+			concerts: '',
 
+			showMe: false,
+			loading: false
 		}  
 	}
+
 	returnLatLong = (address) => {
 		//Pass the address to the axios call which is broken up into its own component.
 		getLatLong(address).then(({data}) => {
@@ -30,6 +33,7 @@ class Search extends Component {
 			this.props.setLatLng(this.state.lat, this.state.lng);
 		});
 	}
+
 	returnLibraries = (lat,lng) => {
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(lat,lng).then(({data}) => {
@@ -39,6 +43,7 @@ class Search extends Component {
 			this.props.setLibraries(this.state.libraries);
 		});
 	}
+
 	returnConcerts = (lat,lng) => {
 		let concertArray = [];
 		getConcerts(lat,lng).then(({data}) => {
@@ -72,16 +77,26 @@ class Search extends Component {
 	}
 	handleChange = (input) => {
 		this.setState({
-			[input.target.id]: input.target.value
+			[input.target.id]: input.target.value,
 		})
+		
 	}
-	handleSubmit = (e) => {
 
+	handleSubmit = (e) => {
 			e.preventDefault();
 			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
-			this.returnLatLong(this.state.location);
 
+
+
+
+		if (this.state.location === '') {
+				this.setState({showMe: true});
+			} else {
+				this.setState({ showMe: false, loading: true })
+				this.returnLatLong(this.state.location);
+			}
 	}
+
 	render() {
 			return (
 				<div className="searchContainer wrapper">
@@ -98,6 +113,20 @@ class Search extends Component {
 						<label htmlFor="submit" className="visuallyHidden">Submit</label>
 						<input type="submit" id="submit" className="submit" value="Submit"/> 
 					</form>
+
+					{this.state.showMe ?
+					<div className="addressValidator">
+						<p>* Please enter a valid address.</p>
+					</div>
+					: null
+					}
+
+					{this.state.loading ?
+					<div className="loadingBars">
+						<img src={require("./loading.gif")} />
+					</div>
+					: null
+					} 
 				</div>
 			);
 	}

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "address-validator": "^0.2.3",
     "ajv": "^6.5.3",
     "axios": "^0.18.0",
     "google-map-react": "^1.0.6",
