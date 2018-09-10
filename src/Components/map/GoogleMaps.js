@@ -21,7 +21,7 @@ const GoogleMaps = withScriptjs(withGoogleMap((props) => {
     });
   }
   return (
-    <GoogleMap defaultZoom={12} center={props.location}>
+    <GoogleMap defaultZoom={14} center={props.location}>
       <Marker position={props.location} />
       {libraryLocations}
       {concertVenueLocations}
