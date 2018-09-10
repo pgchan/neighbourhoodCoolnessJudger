@@ -57,8 +57,8 @@ class Search extends Component {
 							.map(res => res.data._embedded.events)
 							.reduce((acc,curr) => [...acc,...curr]);
 
-							this.setState({ concerts },() => {
-								console.log(this.state.concerts);
+							this.setState({ 
+								concerts 
 							})
 							this.props.setConcerts(this.state.concerts);
 					});
