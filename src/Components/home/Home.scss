@@ -1,3 +1,4 @@
+
 // Variables:
 $primaryColor: #2d2d2d;
 $secondaryColor: #F5F5F5;
@@ -19,7 +20,7 @@ $accentColor: #FED430;
 
 .overlay {
     // background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 20%, transparent 50%, rgba(255, 255, 255, 0.3) 90%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0,0, 0.9) 90%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0,0, 0.95) 90%);
     height: 100vh;
     padding-top: 0.1px;
 }
@@ -47,11 +48,17 @@ form {
 
 #location {
     padding: 10px 20px;
+    background: white;
     border: 1px solid white;
     color: dimgray;
     margin-right: 10px;
     width: 50%;
     position: relative; 
+
+    &:active {
+        background: white;
+        outline: none;
+    }
 }
 
 
@@ -68,3 +75,23 @@ form {
     }
 }
 
+.addressValidator {
+    text-align: center;
+    p {
+        color: $secondaryColor;
+        font-size: 1rem;
+        font-style: italic;
+        margin-top: 40px;
+    }
+}
+
+.loadingBars {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 90px;
+    height: 90px;
+
+    img {
+        width: 100%;
+    }
+}
