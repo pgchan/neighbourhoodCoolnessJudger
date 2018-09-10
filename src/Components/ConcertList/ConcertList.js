@@ -12,9 +12,10 @@ class ConcertList extends Component {
             {Array.isArray(this.props.concerts) ? 
               this.props.concerts.map((concert) => {
                 return(
-                  <ul>
+                  <ul key={concert.id}>
                     <li><a href={concert.url} target="_blank">{concert.name}</a></li>
                     <li>{concert.dates.start.localDate}, {concert.dates.start.localTime}</li>
+                    <li>Venu - {concert._embedded.venues[0].name}</li>
                   </ul>
                 )
               }
