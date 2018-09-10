@@ -43,7 +43,6 @@ class Search extends Component {
 		let concertArray = [];
 		getConcerts(lat,lng).then(({data}) => {
 			if (data._embedded) {
-				// const concertsPage1 = data._embedded.eventsc
 				const pages = [];
 				for (let i = 0; i < data.page.totalPages; i++) {
 					pages.push(i);
@@ -51,11 +50,7 @@ class Search extends Component {
 				const requests = pages.map((pageNum) => {
 					return getConcertsAgain(lat,lng,pageNum)
 				})
-				// for (let i = 0; i < data.page.totalPages; i++) {
-				// 	getConcertsAgain(lat,lng,i).then(({data}) => {
-				// 		concertArray.push(...data._embedded.events);
-				// 	})
-				// }
+			
 				Promise.all(requests)
 					.then((res) => {
 						const concerts = res
@@ -65,13 +60,14 @@ class Search extends Component {
 							this.setState({ concerts },() => {
 								console.log(this.state.concerts);
 							})
+							this.props.setConcerts(this.state.concerts);
 					});
 			} else {
 				this.setState({
 					concerts: 'There are no concerts in this area.'
 				})
+				this.props.setConcerts(this.state.concerts)
 			}
-			this.props.setConcerts(this.state.concerts)
 		})
 	}
 	handleChange = (input) => {
