@@ -13,6 +13,7 @@ class LibraryList extends Component {
           {this.props.libraryEvents.map((library) => {
             return (
               <ul key={library.link}>
+                {/* <li><h2>{library.library}</h2></li> */}
                 <li><a href={library.link} target="_blank">{library.title}</a></li>
                 <li>{library.date1}, {library.time}</li>
                 <li>{library.library}</li>

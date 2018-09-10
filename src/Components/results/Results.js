@@ -35,6 +35,7 @@ class Results extends Component {
     })
     console.log(flatListOfLibraryEvents);
     
+    // 1 concert = 5 libraries. 
     
     let coolOrUncool = ""
     let numberOfLocalLibraryEvents = flatListOfLibraryEvents.length;
@@ -43,20 +44,21 @@ class Results extends Component {
     console.log(`Number of local library events - ${numberOfLocalLibraryEvents}`);
     let numberOfLocalConcerts = this.props.concerts.length;
     console.log(`Number local concerts - ${numberOfLocalConcerts}`);
-    let concertLibraryEventsRatio = (`${numberOfLocalConcerts}` / 2) / numberOfLocalLibraryEvents;
+    // let concertLibraryEventsRatio = (`${numberOfLocalConcerts}` / 2) / numberOfLocalLibraryEvents;
+    let concertLibraryEventsRatio = numberOfLocalConcerts / (`${numberOfLocalLibraryEvents}` / 5);
     console.log("ratio - " + concertLibraryEventsRatio );
 
-    if (concertLibraryEventsRatio < 1) {
+    if (concertLibraryEventsRatio < 0.5) {
       coolOrUncool = "This place is really boring. There are way too many library events going on here."
-    } else if (concertLibraryEventsRatio === 1) {
+    } else if (concertLibraryEventsRatio >= 0.5 && concertLibraryEventsRatio < 0.75) {
       coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here."
-    } else if (concertLibraryEventsRatio > 1 && concertLibraryEventsRatio < 2) {
+    } else if (concertLibraryEventsRatio >= 0.75 && concertLibraryEventsRatio < 1) {
       coolOrUncool = "This place is boring. There are many library events going on here."
-    } else if (concertLibraryEventsRatio === 2) {
-      coolOrUncool = "This place is cool! Good amount of concerts!"
-    } else if (concertLibraryEventsRatio > 2 && concertLibraryEventsRatio <= 3) {
+    } else if (concertLibraryEventsRatio >= 1 && concertLibraryEventsRatio < 1.25) {
+      coolOrUncool = "This place is cool! Quite lot of concerts!"
+    } else if (concertLibraryEventsRatio >= 1.25 && concertLibraryEventsRatio < 1.5) {
       coolOrUncool = "This place is quite cool! A lot of concerts!"
-    } else if (concertLibraryEventsRatio > 3.1) {
+    } else if (concertLibraryEventsRatio >= 1.5) {
       coolOrUncool = "This place is really cool! A LOT of concerts!"
     }
 
@@ -66,22 +68,6 @@ class Results extends Component {
       neighbourhoodResult: coolOrUncool,
     })
   }
-
-
-
-  // coolnessCalculator = (x) => {
-  //   console.log("Ratio - " + x);
-    
-
-  // //   let localConcerts = this.props.concerts.length;
-  // //   console.log(`Number local concerts - ${localConcerts}`);
-
-  // //   // let localLibraryEvents = this.state.libraryEvents.length;
-  // //   // console.log(`Number of local library events - ${localLibraryEvents}`);
-  
-
-  // }
-
 
   render() {
     return (

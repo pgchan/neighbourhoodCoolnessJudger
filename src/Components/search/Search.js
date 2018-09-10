@@ -3,7 +3,7 @@ import '../home/Home.css';
 
 
 // Calls
-import { getLatLong, getLibraries, getConcerts } from '../axios/axios'
+import { getLatLong, getLibraries, getConcerts, getConcertsAgain } from '../axios/axios'
 
 class Search extends Component {
 	constructor(props) {
@@ -13,7 +13,7 @@ class Search extends Component {
 				lat: '',
 				lng: '',
 				libraries: [],
-				concerts: [],
+				concerts: '',
 
 		}  
 	}
@@ -40,20 +40,36 @@ class Search extends Component {
 		});
 	}
 	returnConcerts = (lat,lng) => {
+		let concertArray = [];
 		getConcerts(lat,lng).then(({data}) => {
 			if (data._embedded) {
-				this.setState({
-					concerts: data._embedded.events
+				const pages = [];
+				for (let i = 0; i < data.page.totalPages; i++) {
+					pages.push(i);
+				}
+				const requests = pages.map((pageNum) => {
+					return getConcertsAgain(lat,lng,pageNum)
 				})
+			
+				Promise.all(requests)
+					.then((res) => {
+						const concerts = res
+							.map(res => res.data._embedded.events)
+							.reduce((acc,curr) => [...acc,...curr]);
+
+							this.setState({ 
+								concerts 
+							})
+							this.props.setConcerts(this.state.concerts);
+					});
 			} else {
 				this.setState({
 					concerts: 'There are no concerts in this area.'
 				})
+				this.props.setConcerts(this.state.concerts)
 			}
-			this.props.setConcerts(this.state.concerts)
 		})
 	}
-
 	handleChange = (input) => {
 		this.setState({
 			[input.target.id]: input.target.value
