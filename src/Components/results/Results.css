@@ -1,0 +1,56 @@
+.resultsPage {
+  background: url("./resultsBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px 0;
+  height: 140vh;
+  padding-top: 0.1px;
+  padding-bottom: 0.1px;
+  color: white; }
+  .resultsPage .overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 80%, rgba(0, 0, 0, 0.95) 90%);
+    height: 140vh;
+    padding-top: 0.1px; }
+  .resultsPage h2 {
+    font-size: 13px;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+    margin: 20px 0 0 0; }
+  .resultsPage .headingContainer {
+    background: black;
+    border: 1px solid #B8ECD6; }
+  .resultsPage h4 {
+    font-size: 20px;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 13.5px;
+    font-weight: 400;
+    color: white; }
+
+.mapContainer {
+  margin: 0 auto;
+  text-align: center;
+  margin: 50px 0;
+  clear: both; }
+
+.resultLinks {
+  display: float;
+  margin: 30px auto 45px auto;
+  width: 50%; }
+  .resultLinks .concertListLink {
+    float: left; }
+  .resultLinks .libraryListLink {
+    float: right; }
+  .resultLinks .linkText {
+    font-size: 10px;
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    color: #FED430;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: 0.5s ease; }
+    .resultLinks .linkText:hover {
+      color: white; }

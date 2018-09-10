@@ -31,6 +31,24 @@ $accentColor: #FED430;
     margin: 0 auto;
 }
 
+input#location,
+input#submit {
+    @include secondaryFont(9);
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 3px 3px 10px $fourthColor;
+        outline: 1px solid $fourthColor;
+        border: 1px solid $fourthColor;
+    }
+}
+
+#submit {
+    background: black;
+    color: white;
+    border: 1.5px solid black;
+}
+
 
 // Typography:
 body {
@@ -61,22 +79,6 @@ h1,
     text-transform: uppercase;
 }
 
-input#location,
-input#submit {
-    @include secondaryFont(9);
-    cursor: pointer;
-
-    &:focus {
-        box-shadow: 3px 3px 10px $fourthColor;
-    }
-}
-
-#submit {
-    background: black;
-    color: white;
-    border: 1.5px solid black;
-}
-
 
 // HEADER STYLES
 header {
@@ -91,14 +93,14 @@ header {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 23px;
+    top: 19px;
 }
 
 
 // FOOTER STYLES
 footer {
     background: black;
-    color: $accentColor;
+    color: $secondaryColor;
     @include primaryFont(9);
 
     .footerWrapper {
@@ -110,6 +112,7 @@ footer {
 
     p:first-child {
         float: left;
+        margin-top: 6.5px;
     }
 
     p:last-child {

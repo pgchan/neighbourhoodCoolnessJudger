@@ -1,0 +1,92 @@
+// @import "../App";
+
+// Variables:
+$primaryColor: #2d2d2d;
+$secondaryColor: #F5F5F5;
+$thirdColor: #12886E;
+$fourthColor: #B8ECD6;
+$accentColor: #FED430;
+
+// Mixins:
+@mixin primaryFont($fontSize) {
+    font-size: $fontSize * 1px;
+    font-size: ($fontSize / 10) * 1rem;
+    font-family: 'Playfair Display', serif;
+} 
+
+@mixin secondaryFont($fontSize) {
+    font-size: $fontSize * 1px;
+    font-size: ($fontSize / 10) * 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.resultsPage {
+    background: url('./resultsBackground.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin: 0 auto;
+    padding: 25px 0;
+    height: 140vh;
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    color: white;
+
+    .overlay {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 80%, rgba(0, 0,0, 0.95) 90%);
+        height: 140vh;
+        padding-top: 0.1px;
+    }
+   
+    h2 {
+        @include primaryFont(13);   
+        margin: 20px 0 0 0;
+    }
+
+    .headingContainer {
+        background: black;
+        border: 1px solid $fourthColor;
+    }
+
+    h4 {
+        @include secondaryFont(20);
+        margin-top: 13.5px;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+.mapContainer {
+    margin: 0 auto;
+    text-align: center;
+    margin: 50px 0;
+    clear: both;
+}
+
+.resultLinks {
+    display: float;
+    margin: 30px auto 45px auto;
+    width: 50%;
+   
+    .concertListLink {
+        float: left;
+    }
+
+    .libraryListLink {
+        float: right;
+    }
+
+    .linkText {
+        @include primaryFont(10);
+        color: $accentColor;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-transition: 0.5s ease;
+
+        &:hover {
+            color: white;
+        }
+    }
+    
+}
