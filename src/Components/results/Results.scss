@@ -80,7 +80,7 @@ $playfair: 'Playfair Display', serif;
          }
 
         h4 {
-            @include secondaryFont(12);
+            @include secondaryFont(18);
             margin-top: 13.5px;
             font-weight: 400;
             color: $secondaryColor;
@@ -99,21 +99,13 @@ $playfair: 'Playfair Display', serif;
     }
 }
 
-// .mapContainer {
-//     margin: 0 auto;
-//     text-align: center;
-//     margin: 50px 0;
-//     clear: both;
-// }
-
 .resultsContainer {
     z-index: 200;
     position: relative;
     margin-top: 50px;
-    height: 120vh;
 
     h2 {
-        @include primaryFont(20); 
+        @include primaryFont(30); 
         color: $primaryColor;
         margin-bottom: 40px;
     }
@@ -133,7 +125,7 @@ $playfair: 'Playfair Display', serif;
     }
 
     .linkText {
-        @include secondaryFont(10);
+        @include secondaryFont(13.5);
         color: $primaryColor;
         font-weight: 700;
         text-decoration: none;

@@ -99,15 +99,11 @@ class Search extends Component {
 		this.setState({
 			[input.target.id]: input.target.value,
 		})
-		
 	}
 
 	handleSubmit = (e) => {
 			e.preventDefault();
 			//Pass the address/location to the return lat long function. This function will call the request in the axios folder, passing the address.
-
-
-
 
 		if (this.state.location === '') {
 				this.setState({showMe: true});

@@ -46,8 +46,8 @@
       margin-top: 150px;
       font-weight: 400; }
     .resultsPage .headingContainer h4 {
-      font-size: 12px;
-      font-size: 1.2rem;
+      font-size: 18px;
+      font-size: 1.8rem;
       font-family: 'Open Sans', sans-serif;
       margin-top: 13.5px;
       font-weight: 400;
@@ -65,11 +65,10 @@
 .resultsContainer {
   z-index: 200;
   position: relative;
-  margin-top: 50px;
-  height: 120vh; }
+  margin-top: 50px; }
   .resultsContainer h2 {
-    font-size: 20px;
-    font-size: 2rem;
+    font-size: 30px;
+    font-size: 3rem;
     font-family: 'Playfair Display', serif;
     color: #2d2d2d;
     margin-bottom: 40px; }
@@ -83,8 +82,8 @@
   .resultLinks .libraryListLink {
     float: right; }
   .resultLinks .linkText {
-    font-size: 10px;
-    font-size: 1rem;
+    font-size: 13.5px;
+    font-size: 1.35rem;
     font-family: 'Open Sans', sans-serif;
     color: #2d2d2d;
     font-weight: 700;
