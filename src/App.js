@@ -103,8 +103,7 @@ class App extends Component {
 
 					<footer>
 						<div className="clearfix footerWrapper">
-							<p>&copy; 2018</p>
-							<p>Made by David Tran, Pratik Gauchan & Victoria Chan</p>
+							<p>&copy; 2018. Created by David Tran, Pratik Gauchan & Victoria Chan</p>
 						</div>
 					</footer> 
 				</div>

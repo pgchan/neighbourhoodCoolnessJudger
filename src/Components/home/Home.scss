@@ -9,7 +9,7 @@ $accentColor: #FED430;
 // Homepage styles (includes stiles for Home.js, Search.js)
 
 .homeBackground {
-    background: url('./homeBackground.jpg');
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0,0, 0.95) 90%), url('./homeBackground.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -17,12 +17,6 @@ $accentColor: #FED430;
     // padding-top: 0.1px;
     // padding-bottom: 0.1px;
     position: relative;
-}
-
-.overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0,0, 0.95) 90%);
-    height: calc(100vh - 70px);
-    padding-top: 0.1px;
 }
 
 .searchContainer {
@@ -41,24 +35,37 @@ $accentColor: #FED430;
     margin-right: 10px;
 }
 
+.searchBoxContainer #location {
+    font-size: 1.6rem;
+    padding: 17px 30px 17px 18px;
+    font-size: 1.6rem;
+}
+
 .searchBoxLabel {
     display: inline-block
 }
 
 .floatingLabel {
     position: absolute;
-    top: 13px;
+    top: 22px;
     left: 20px;
-    font-size: 0.8rem;
     transition: 0.3s;
+    color: #888;
 }
 
+<<<<<<< HEAD
 .searchBoxContainer input:focus ~ label,
 // .searchBoxContainer input:hover ~ label,
 .searchBoxContainer input:valid ~ label   {
     top: -1px;
+=======
+.searchBoxContainer input:focus + label,
+.searchBoxContainer input:valid + label   
+{
+    top: 0px;
+>>>>>>> cee69e280a881b6c207e862d7757c56a0fa4f57c
     font-weight: bold;
-    font-size: 0.7rem;;
+    font-size: 1.2rem;
 }
 
 .visuallyHidden {
@@ -93,9 +100,10 @@ form {
 
 
 #submit {
-    padding: 10px 25px;
+    padding: 16px 30px;
     text-transform: uppercase;
     letter-spacing: 1.3px;
+    
 
     &:hover {
         background: lighten(black, 20);
@@ -105,26 +113,30 @@ form {
     }
 }
 
+.search #submit {font-size: 1.6rem;}
+
 .addressValidator {
+    // text-align: center;
+    margin: 0 auto;
     text-align: center;
+    position: absolute;
+    left: 45%;
+    transform: translate(-50%, 5%);
+
     p {
-        color: $secondaryColor;
-        font-size: 1rem;
+        color: white;
+        font-size: 2rem;
         font-style: italic;
-        margin-top: 40px;
+        background: black;
+        padding: 9px 12px;
     }
 }
 
 .loadingBars {
-    // margin: 0 auto;
-    // margin-top: 30px;
-    // width: 90px;
-    // height: 90px;
-
     margin: 0 auto;
     text-align: center;
     position: absolute;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, 5%);
 
     img {

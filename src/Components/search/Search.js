@@ -117,36 +117,31 @@ class Search extends Component {
 	}
 
 	render() {
-		return (
-			<div className="searchContainer wrapper">
-				<div className="searchInfo">
-					<h1>Welcome to 
-						{/* <br/><span className="bold">Hot Block.</span> */}
-					</h1>
-					<div className="logoContainer wrapper">
-						<img className="logo" src={logoYellow} alt="Hot Block Logo" />
-					</div>	
-					<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
-				</div>
-
-				<form className="search" onSubmit={this.handleSubmit}> 
-					<label htmlFor="searchbar" className="visuallyHidden">Search</label>  
-					<div className="searchBoxContainer">
-						<input type="text" id="location" onChange={this.handleChange} className="searchbar" name="searchbar" required />
-						<label className="floatingLabel">Type in your address here</label>
+			return (
+				<div className="searchContainer wrapper">
+					<div className="searchInfo">
+						<h1>Welcome to <br/><span className="bold">Hot Block</span></h1>
+						<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
 					</div>
-					<div className="searchBoxLabel">
-						<label htmlFor="submit" className="visuallyHidden">Submit</label>
-						<input type="submit" id="submit" className="submit" value="Submit"/> 
-					</div>
-				</form>
 
-				{this.state.showMe ?
-				<div className="addressValidator">
-					<p>* Please enter a valid address.</p>
-				</div>
-				: null
-				}
+					<form className="search" onSubmit={this.handleSubmit}> 
+						<label htmlFor="searchbar" className="visuallyHidden">Search</label>  
+						<div className="searchBoxContainer">
+							<input type="text" id="location" onChange={this.handleChange} className="searchbar" name="searchbar" required />
+							<label htmlFor="location" className="floatingLabel">Type in your address here</label>
+						</div>
+						<div className="searchBoxLabel">
+							<label htmlFor="submit" className="visuallyHidden">Submit</label>
+							<input type="submit" id="submit" className="submit" value="Submit"/> 
+						</div>
+					</form>
+
+					{this.state.showMe ?
+					<div className="addressValidator">
+						<p>Please enter a valid address.</p>
+					</div>
+					: null
+					}
 
 				{this.state.loading ?
 				<div className="loadingBars">
@@ -160,3 +155,6 @@ class Search extends Component {
 }
 
 export default Search;
+
+// id = "searchbar"
+// htmlFor = "searchbar"
