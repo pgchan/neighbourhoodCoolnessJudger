@@ -117,7 +117,7 @@ class Search extends Component {
 			return (
 				<div className="searchContainer wrapper">
 					<div className="searchInfo">
-						<h1>Welcome to <br/><span className="bold">Hot Block.</span></h1>
+						<h1>Welcome to <br/><span className="bold">Hot Block</span></h1>
 						<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
 					</div>
 
@@ -125,7 +125,7 @@ class Search extends Component {
 						<label htmlFor="searchbar" className="visuallyHidden">Search</label>  
 						<div className="searchBoxContainer">
 							<input type="text" id="location" onChange={this.handleChange} className="searchbar" name="searchbar" required />
-							<label className="floatingLabel">Type in your address here</label>
+							<label htmlFor="location" className="floatingLabel">Type in your address here</label>
 						</div>
 						<div className="searchBoxLabel">
 							<label htmlFor="submit" className="visuallyHidden">Submit</label>
@@ -135,7 +135,7 @@ class Search extends Component {
 
 					{this.state.showMe ?
 					<div className="addressValidator">
-						<p>* Please enter a valid address.</p>
+						<p>Please enter a valid address.</p>
 					</div>
 					: null
 					}
@@ -152,3 +152,6 @@ class Search extends Component {
 }
 
 export default Search;
+
+// id = "searchbar"
+// htmlFor = "searchbar"

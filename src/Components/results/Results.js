@@ -6,7 +6,6 @@ import ConcertList from '../ConcertList/ConcertList';
 
 import './Results.css';
 import brush from './brush.png';
-import Typer from '../typed/Typed';
 
 class Results extends Component {
   constructor(props) {
