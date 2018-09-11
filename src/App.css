@@ -56,7 +56,8 @@ h1,
 header {
   height: 70px;
   background: black;
-  position: relative; }
+  position: relative;
+  display: float; }
 
 .logo {
   width: 70px;
@@ -64,6 +65,19 @@ header {
   position: absolute;
   top: 15px;
   z-index: 500; }
+
+.infoContainer button {
+  font-size: 10px;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  background: black;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  float: right;
+  transform: translateY(20px); }
 
 .resultsContainer .mapContainer {
   margin: 0 auto; }

@@ -8,7 +8,6 @@ import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 import { getLibraryEvents } from './Components/axios/axios';
 import logoYellow from './styles/assets/logoYellow.png';
-// import Logo from './styles/assets/Logo';
 
 class App extends Component {
 	constructor() {
@@ -71,9 +70,12 @@ class App extends Component {
 									/> 
 							</main> :
 							<div className="homeBackground">
-							<header>
+							<header className="clearfix">
 								<div className="logoContainer wrapper">
 									<img className="logo" src={logoYellow} />
+								</div>
+								<div className="infoContainer wrapper">
+									<button>i</button>
 								</div>
 							</header>
 								<Route exact path="/" render={() =>
