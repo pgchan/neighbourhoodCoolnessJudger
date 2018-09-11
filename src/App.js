@@ -6,6 +6,7 @@ import './setup.css';
 // COMPONENTS
 import Home from './Components/home/Home';
 import Results from './Components/results/Results';
+import Info from './Components/info/Info';
 import { getLibraryEvents } from './Components/axios/axios';
 import logoYellow from './styles/assets/logoYellow.png';
 
@@ -19,6 +20,7 @@ class App extends Component {
 			concerts: '',
 			libraryEvents: [],
 
+			showMe: false,
 		}
 	}
 	componentDidMount() {
@@ -44,15 +46,33 @@ class App extends Component {
 			concerts
 		})
 	}
+
+	handleInfo = (e) => {
+		e.preventDefault();
+
+		this.setState({ showMe: true });
+	}
+
 	render() {
 		const location = {
 			lat: this.state.lat,
 			lng: this.state.lng
 		};
+
 		return (
 			<Router>
 				<div className="App">
 
+					<div className="infoContainer clearfix wrapper">
+						<button onClick={this.handleInfo}>i</button>
+					</div>
+					
+						{this.state.showMe ?
+							<Info />
+							: null
+						} 
+
+	
 						{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 							<main className="results">
 							<div className="logoContainer wrapper">
@@ -68,10 +88,13 @@ class App extends Component {
 									/> 
 							</main> :
 							<div className="homeBackground">
-							<header>
+							<header className="clearfix">
 								<div className="logoContainer wrapper">
 									<img className="logo" src={logoYellow} alt="Hot Block Logo"/>
 								</div>
+								{/* <div className="infoContainer wrapper">
+									<button>i</button>
+								</div> */}
 							</header>
 								<Route exact path="/" render={() =>
 									<Home
