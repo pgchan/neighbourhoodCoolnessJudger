@@ -21,16 +21,46 @@ $accentColor: #FED430;
 }
 
 .resultsPage {
+    background: #F2F3F3;
     text-align: center;
     margin: 0 auto;
     height: 140vh;
     color: white;
+    position: relative;
+    // z-index: 100;
+
+    .whiteOverlay {
+        position: relative;
+        z-index: -100;
+    }
+
+    .brush {
+        width: 100%;
+        position: absolute;
+        top: -200px;
+        right: 0px;
+        left: 0px;
+        transform: scaleX(-1);
+    }
+
+    .whiteOverlay::before {
+        content: "";
+        width: 100px;
+        height: 100px;
+        background: #F2F3F3;
+        display: inline-block;
+        position: absolute;
+        z-index: 700;
+        top: -135px;
+        right: 0;
+
+    }
 
     .headingContainer {
-        background: linear-gradient(rgba(19, 135, 110, 0.4), rgba(0, 0, 0, 0.8)), url('./resultsBackground.jpg');
+        background: linear-gradient(rgba(19, 135, 110, 0.4), rgba(0, 0, 0, 0.5)), url('./resultsBackground.jpg');
         padding-top: 0.1px;
         padding-bottom: 0.1px;
-        height: 70vh;
+        height: 80vh;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -60,11 +90,16 @@ $accentColor: #FED430;
 // }
 
 .resultsContainer {
+    z-index: 200;
+    position: relative;
     margin-top: 50px;
+    height: 120vh;
+    background: #F2F3F3;
 
     h2 {
         @include primaryFont(20); 
         color: $primaryColor;
+        margin-bottom: 40px;
     }
 }
 
@@ -88,9 +123,11 @@ $accentColor: #FED430;
         text-decoration: none;
         text-transform: uppercase;
         -webkit-transition: 0.5s ease;
+        border-bottom: 1.5px solid $thirdColor;
+        padding-bottom: 10px;
 
         &:hover {
-            color: $fourthColor;
+            color: $thirdColor;
         }
     }
     

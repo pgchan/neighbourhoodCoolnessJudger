@@ -96,10 +96,10 @@ header {
     height: 50px;
     position: absolute;
     top: 15px;
+    z-index: 500;
 }
 
 // MAP CONTAINER
-
 .resultsContainer .mapContainer {
     margin: 0 auto;
 }

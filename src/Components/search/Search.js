@@ -122,7 +122,7 @@ class Search extends Component {
 				<div className="searchContainer wrapper">
 					<div className="searchInfo">
 						<h1>Welcome to <br/><span className="bold">Hot Block.</span></h1>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti exercitationem repellendus beatae quia inventore, accusantium ratione aspernatur quos incidunt magnam iusto explicabo porro. Perspiciatis repellat, aliquid quod hic accusamus maiores?</p>
+						<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
 					</div>
 
 					<form className="search" onSubmit={this.handleSubmit}> 
