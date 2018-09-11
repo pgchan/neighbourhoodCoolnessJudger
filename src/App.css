@@ -55,7 +55,6 @@ header {
   height: 50px;
   position: absolute;
   top: 15px;
-<<<<<<< HEAD
   z-index: 100; }
 
 .eventContainer {
@@ -76,9 +75,6 @@ header {
     transition: 0.6s; }
   .eventContainer__header {
     font-weight: bold; }
-=======
-  z-index: 500; }
->>>>>>> 6bb443780cff1903a54beed2d38105d82d33b9b2
 
 .resultsContainer .mapContainer {
   margin: 0 auto; }
@@ -92,6 +88,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 200;
   font-family: 'Playfair Display', serif; }
   footer .footerWrapper {
     display: float;
