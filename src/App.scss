@@ -12,14 +12,14 @@ $accentColor: #FED430;
 // Mixins:
 
 @mixin primaryFont($fontSize) {
-    font-size: $fontSize * 1px;
-    font-size: ($fontSize / 10) * 1rem;
+    // font-size: $fontSize * 1px;
+    // font-size: ($fontSize / 8) * 1rem;
     font-family: 'Playfair Display', serif;
 } 
 
 @mixin secondaryFont($fontSize) {
-    font-size: $fontSize * 1px;
-    font-size: ($fontSize / 10) * 1rem;
+    // font-size: $fontSize * 1px;
+    // font-size: ($fontSize / 8) * 1rem;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -107,10 +107,12 @@ header {
     text-align: center;
     margin: 0 auto;
     padding: 13px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: black;
     text-decoration: none;
     line-height: 18px;
+    box-shadow: 0 10px 6px -6px #777;
+    border: 1px solid lightgrey;
     &:hover {
         background: lightgrey;
         transform: scale(1.3);
