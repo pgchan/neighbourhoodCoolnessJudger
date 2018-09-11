@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
+import logoYellow from '../../styles/assets/logoYellow.png';
+
 
 // STYLES
 import './Results.css';
@@ -84,6 +86,9 @@ class Results extends Component {
       }) 
     } else {
       let coolOrUncool = ""
+      let hotOrNot;
+      let nerdy = "nerdy";
+      let hot = "hot";
       let numberOfLocalLibraryEvents = 0;
       // this.coolnessCalculator(numberOfLocalLibraryEvents)
 
@@ -94,22 +99,29 @@ class Results extends Component {
 
       if (concertLibraryEventsRatio < 0.5) {
         coolOrUncool = "Welcome to Nerdville – otherwise known as your home. This neighbourhood is completely infested with Toronto Public Libraries, and the nerds are everywhere. It’s time to surrender yourself to essential uncoolness.";
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.5 && concertLibraryEventsRatio < 0.75) {
-        coolOrUncool = "Nerd Alert! You can run, you can hide, but you will never escape the sheer number of mouthbreathers that roam this nerd-bourhood."
+        coolOrUncool = "Nerd Alert! You can run, you can hide, but you will never escape the sheer number of mouthbreathers that roam this nerd-bourhood.";
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.75 && concertLibraryEventsRatio < 1) {
-        coolOrUncool = "There are ALMOST enough nightly gigs to cancel out the number of nerdy library events in this neighbourhood… but your block still sucks."
+        coolOrUncool = "There are ALMOST enough nightly gigs to cancel out the number of nerdy library events in this neighbourhood… but your block still sucks.";
+        hotOrNot = nerdy
       } else if (concertLibraryEventsRatio >= 1 && concertLibraryEventsRatio < 1.25) {
-        coolOrUncool = "Let's be honest - you've got some nerds on this block, but we're willing to overlook this flaw if you vow to never attend any of your local library events. Cool? Okay, you're allowed to sit with us at lunch."
+        coolOrUncool = "Let's be honest - you've got some nerds on this block, but we're willing to overlook this flaw if you vow to never attend any of your local library events. Cool? Okay, you're allowed to sit with us at lunch.";
+        hotOrNot = hot;
       } else if (concertLibraryEventsRatio >= 1.25 && concertLibraryEventsRatio < 1.5) {
-        coolOrUncool = "Even the geekiest of geeks is no match for this neighbourhood - in fact, the ones brave enough to venture out to a library event live in constant fear that cool people such as yourself will yell at them enroute to one of the many concerts that take place on your block."
+        coolOrUncool = "Even the geekiest of geeks is no match for this neighbourhood - in fact, the ones brave enough to venture out to a library event live in constant fear that cool people such as yourself will yell at them enroute to one of the many concerts that take place on your block.";
+        hotOrNot = hot;
       } else if (concertLibraryEventsRatio >= 1.5) {
-        coolOrUncool = "We at Hot Block are always interested in making sure people know when they made life choices that suck. Congratulations, you didn't. You my friend, live in a COOL neighbourhood,bustling with loud, badass and awesome gigs."
+        coolOrUncool = "We at Hot Block are always interested in making sure people know when they made life choices that suck. Congratulations, you didn't. You my friend, live in a COOL neighbourhood,bustling with loud, badass and awesome gigs.";
+        hotOrNot = hot;
       }
 
       //Set the state of the large combined array so that the library list can use it to display.
       this.setState({
         libraryEvents: 0,
         neighbourhoodResult: coolOrUncool,
+        hotOrNot,
       })
     }
   }
@@ -117,18 +129,20 @@ class Results extends Component {
   render() {
     return (
       <Router>
+        <main className="results">
+          <Link to="/" onClick={this.props.destroyStates} className="logoContainer wrapper">
+            <img className="logo" src={logoYellow} alt="Hot Block Logo"/>
+          </Link>
           <div className="resultsPage">
-              <div className="headingContainer">
-                  <div className="headingContainer__contents wrapper">
-                      <h2>
-                          This block is...
-                          <span className="hotOrNot">{this.state.hotOrNot}</span>
-                      </h2>
-                      <h4>{this.state.neighbourhoodResult}</h4>
-                  </div>
+            <div className="headingContainer">
+              <div className="headingContainer__contents wrapper">
+                <h2>
+                  This block is...
+                  <span className="hotOrNot">{this.state.hotOrNot}</span>
+                </h2>
+                <h4>{this.state.neighbourhoodResult}</h4>
               </div>
-
-              {/* RESULTS SECTION */}
+            </div>
               <div className="resultsContainer">
                   <div className="whiteOverlay">
                       <img className="brush" src={brush} alt=""/>
@@ -169,7 +183,30 @@ class Results extends Component {
                       />
                   </div>
                 </div>
+                <Route exact path="/concerts" render={() => 
+                  <ConcertList
+                    concerts={this.props.concerts} 
+                  />}
+                />
+
+            <Route exact path="/libraries" render={() => 
+              <LibraryList
+                libraryEvents={this.state.libraryEvents}
+                libraries={this.props.libraries}
+              />}
+            />
+
+            <div className="mapContainer wrapper">
+              <Route exact path="/results" render={() => 
+                <GoogleMapsContainer 
+                  location={this.props.location}
+                  libraries={this.props.libraries}
+                  concerts={this.props.concerts}  
+                />}
+              />
             </div>
+          </div>
+        </main>
       </Router>
     );
   }
