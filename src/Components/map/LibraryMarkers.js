@@ -11,7 +11,6 @@ class LibraryMarkers extends Component {
     }
   }
   clickMarker = () => {
-    console.log(this.props.library.name); 
     this.setState({
       markerClick: true,
     })

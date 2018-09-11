@@ -6,7 +6,7 @@ const ConcertList = (props) => {
       <h1>Concert List</h1>
       <div className="concertResults">
         {Array.isArray(props.concerts) ? 
-          this.props.concerts.map((concert) => {
+          props.concerts.map((concert) => {
             return(
               <ul key={concert.id}>
                 <li><a href={concert.url} target="_blank">{concert.name}</a></li>
