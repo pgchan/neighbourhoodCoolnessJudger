@@ -21,6 +21,10 @@ input#submit {
   color: white;
   border: 1.5px solid black; }
 
+ul {
+  list-style: none;
+  padding-left: 0; }
+
 body {
   font-size: 62.5%;
   letter-spacing: 1.1px; }
@@ -58,11 +62,18 @@ header {
   width: 70px;
   height: 50px;
   position: absolute;
-  top: 15px; }
+  top: 15px;
+  z-index: 500; }
+
+.resultsContainer .mapContainer {
+  margin: 0 auto; }
 
 footer {
   background: black;
   color: #F5F5F5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   font-size: 9px;
   font-size: 0.9rem;
   font-family: 'Playfair Display', serif; }

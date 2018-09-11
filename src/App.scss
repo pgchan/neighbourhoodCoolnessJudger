@@ -49,6 +49,10 @@ input#submit {
     border: 1.5px solid black;
 }
 
+ul {
+    list-style: none;
+    padding-left: 0;
+}
 
 // Typography:
 body {
@@ -92,12 +96,23 @@ header {
     height: 50px;
     position: absolute;
     top: 15px;
+    z-index: 500;
 }
+
+
+// MAP CONTAINER
+.resultsContainer .mapContainer {
+    margin: 0 auto;
+}
+
 
 // FOOTER STYLES
 footer {
     background: black;
     color: $secondaryColor;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     @include primaryFont(9);
 
     .footerWrapper {

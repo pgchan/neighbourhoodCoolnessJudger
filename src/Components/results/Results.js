@@ -82,11 +82,11 @@ class Results extends Component {
               </div>
               </div>
 
-            <div className="wrapper">
+            {/* <div className="wrapper"> */}
               <div className="resultsContainer">
-                {/* <div className="overlay">
+                <div className="whiteOverlay">
                   <img className="brush" src={brush} />
-                </div> */}
+                </div>
                 <h2>Your Neighbourhood</h2>
                 <div className="resultLinks clearfix">
                   <div className="concertListLink">
@@ -123,7 +123,7 @@ class Results extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
       </Router >
     );
   }
