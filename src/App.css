@@ -34,8 +34,8 @@ body {
   background: #F2F3F3; }
 
 h1 {
-  font-size: 20px;
-  font-size: 2.5rem;
+  font-size: 15px;
+  font-size: 1.875rem;
   font-family: 'Playfair Display', serif;
   font-family: 'Open Sans', sans-serif; }
 
@@ -51,19 +51,23 @@ h1,
   line-height: 1.6; }
 
 .bold {
-  font-size: 30px;
-  font-size: 3.75rem;
+  font-size: 40px;
+  font-size: 5rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   color: #FED430;
   text-transform: uppercase;
-  font-size: 7rem;
+  font-size: 5rem;
   letter-spacing: .4rem; }
 
 .floatingLabel {
   font-size: 12px;
   font-size: 1.5rem;
   font-family: 'Open Sans', sans-serif; }
+
+.searchInfo .logo {
+  width: 250px;
+  height: 170px; }
 
 header {
   height: 70px;
@@ -99,24 +103,6 @@ header {
     padding-bottom: 11px;
     font-size: 1.7rem; }
 
-.infoContainer {
-  position: relative; }
-  .infoContainer button {
-    font-size: 13px;
-    font-size: 1.625rem;
-    font-family: 'Playfair Display', serif;
-    background: black;
-    color: white;
-    width: 35px;
-    height: 35px;
-    border: 1.5px solid black;
-    border-radius: 50%;
-    float: right;
-    transform: translateY(20px);
-    position: absolute;
-    right: 0;
-    z-index: 800; }
-
 .resultsContainer .mapContainer {
   margin: 0 auto; }
 
@@ -146,7 +132,7 @@ footer {
 
 @media only screen and (max-width: 800px) {
   .bold {
-    font-size: 6rem; } }
+    font-size: 5rem; } }
 
 @media only screen and (max-width: 700px) {
   .homeBackground .searchContainer {
@@ -174,8 +160,9 @@ footer {
 
 @media only screen and (max-width: 511px) {
   .bold {
-    font-size: 3.9rem; }
+    font-size: 3rem; }
   .searchInfo h1 {
+    margin-top: 145px;
     font-size: 2rem; } }
 
 @media only screen and (max-width: 400px) {

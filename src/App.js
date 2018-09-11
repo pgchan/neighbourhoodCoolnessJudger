@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Redirect, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import './App.css';
 import './setup.css';
+import logoYellow from './styles/assets/logoYellow.png';
 
 // COMPONENTS
 import Home from './Components/home/Home';
@@ -17,10 +18,9 @@ class App extends Component {
 			lng: '',
 			concerts: '',
 			libraryEvents: [],
-
-			showMe: false,
 		}
 	}
+
 	componentDidMount() {
 		getLibraryEvents().then(({data}) => {
 			this.setState({
@@ -28,17 +28,20 @@ class App extends Component {
 			})
 		})
 	}
+
 	setLatLng = (lat, lng) => {
 		this.setState({
 			lat,
 			lng
 		})
 	}
+
 	setLibraries = (libraries) => {
 		this.setState({
 			libraries
 		})
 	}
+
 	setConcerts = (concerts) => {
 		this.setState({
 			concerts
