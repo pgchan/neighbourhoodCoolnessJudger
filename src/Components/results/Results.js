@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import GoogleMapsContainer from '../map/GoogleMapsContainer';
 import LibraryList from '../LibraryList/LibraryList';
 import ConcertList from '../ConcertList/ConcertList';
+import logoYellow from '../../styles/assets/logoYellow.png';
+
 
 import './Results.css';
 import brush from './brush.png';
-import Typer from '../typed/Typed';
 
 class Results extends Component {
   constructor(props) {
@@ -76,6 +77,9 @@ class Results extends Component {
       }) 
     } else {
       let coolOrUncool = ""
+      let hotOrNot;
+      let nerdy = "nerdy";
+      let hot = "hot";
       let numberOfLocalLibraryEvents = 0;
       // this.coolnessCalculator(numberOfLocalLibraryEvents)
 
@@ -85,22 +89,29 @@ class Results extends Component {
 
       if (concertLibraryEventsRatio < 0.5) {
         coolOrUncool = "This place is really boring. There are way too many library events going on here.";
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.5 && concertLibraryEventsRatio < 0.75) {
         coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here."
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.75 && concertLibraryEventsRatio < 1) {
         coolOrUncool = "This place is boring. There are many library events going on here."
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 1 && concertLibraryEventsRatio < 1.25) {
         coolOrUncool = "This place is cool! Quite lot of concerts!"
+        hotOrNot = hot;        
       } else if (concertLibraryEventsRatio >= 1.25 && concertLibraryEventsRatio < 1.5) {
         coolOrUncool = "This place is quite cool! A lot of concerts!"
+        hotOrNot = hot;
       } else if (concertLibraryEventsRatio >= 1.5) {
         coolOrUncool = "This place is really cool! A LOT of concerts!"
+        hotOrNot = hot;
       }
 
       //Set the state of the large combined array so that the library list can use it to display.
       this.setState({
         libraryEvents: 0,
         neighbourhoodResult: coolOrUncool,
+        hotOrNot,
       })
     }
   }
@@ -108,18 +119,20 @@ class Results extends Component {
   render() {
     return (
       <Router>
-        <div className="resultsPage">
-              <div className="headingContainer">
-                <div className="headingContainer__contents wrapper">
-                  <h2>
-                    This block is...
-                    <span className="hotOrNot">{this.state.hotOrNot}</span>
-                  </h2>
-                  <h4>{this.state.neighbourhoodResult}</h4>
-                </div>
+        <main className="results">
+          <Link to="/" onClick={this.props.destroyStates} className="logoContainer wrapper">
+            <img className="logo" src={logoYellow} alt="Hot Block Logo"/>
+          </Link>
+          <div className="resultsPage">
+            <div className="headingContainer">
+              <div className="headingContainer__contents wrapper">
+                <h2>
+                  This block is...
+                  <span className="hotOrNot">{this.state.hotOrNot}</span>
+                </h2>
+                <h4>{this.state.neighbourhoodResult}</h4>
               </div>
-
-            {/* <div className="wrapper"> */}
+            </div>
               <div className="resultsContainer">
                 <div className="whiteOverlay">
                   <img className="brush" src={brush} alt=""/>
@@ -149,8 +162,8 @@ class Results extends Component {
               />}
             />
 
-            <div className="mapCOntainer wrapper">
-              <Route exact path="/" render={() => 
+            <div className="mapContainer wrapper">
+              <Route exact path="/results" render={() => 
                 <GoogleMapsContainer 
                   location={this.props.location}
                   libraries={this.props.libraries}
@@ -160,6 +173,7 @@ class Results extends Component {
             </div>
           </div>
         </div>
+        </main>
       </Router>
     );
   }

@@ -1,17 +1,12 @@
 .homeBackground {
-  background: url("./homeBackground.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0, 0, 0.95) 90%), url("./homeBackground.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: calc(100vh - 70px);
+  height: 100vh;
   padding-top: 0.1px;
   padding-bottom: 0.1px;
   position: relative; }
-
-.overlay {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0, 0, 0.95) 90%);
-  height: calc(100vh - 70px);
-  padding-top: 0.1px; }
 
 .searchContainer {
   text-align: center;
@@ -82,8 +77,8 @@ form {
 .addressValidator {
   text-align: center; }
   .addressValidator p {
-    color: #F5F5F5;
-    font-size: 1rem;
+    color: orangered;
+    font-size: 2rem;
     font-style: italic;
     margin-top: 40px; }
 
