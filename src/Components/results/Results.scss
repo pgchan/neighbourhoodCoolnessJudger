@@ -64,7 +64,13 @@ $accentColor: #FED430;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-
+        position: relative;
+        &__contents {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         h2 {
             @include primaryFont(20);   
             margin-top: 150px;
@@ -94,7 +100,6 @@ $accentColor: #FED430;
     position: relative;
     margin-top: 50px;
     height: 120vh;
-    background: #F2F3F3;
 
     h2 {
         @include primaryFont(20); 

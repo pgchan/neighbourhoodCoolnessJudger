@@ -102,16 +102,16 @@ class Results extends Component {
       <Router>
         <div className="resultsPage">
               <div className="headingContainer">
-              <div className="wrapper">
-                <h2>The verdict is in.</h2>
-                <h4>{this.state.neighbourhoodResult}</h4>
-              </div>
+                <div className="headingContainer__contents wrapper">
+                  <h2>The verdict is in.</h2>
+                  <h4>{this.state.neighbourhoodResult}</h4>
+                </div>
               </div>
 
             {/* <div className="wrapper"> */}
               <div className="resultsContainer">
                 <div className="whiteOverlay">
-                  <img className="brush" src={brush} />
+                  <img className="brush" src={brush} alt=""/>
                 </div>
                 <h2>Your Neighbourhood</h2>
                 <div className="resultLinks clearfix">
