@@ -8,7 +8,6 @@ $thirdColor: #12886E;
 $fourthColor: #B8ECD6;
 $accentColor: #FED430;
 
-
 // Mixins:
 
 @mixin primaryFont($fontSize) {
@@ -25,6 +24,7 @@ $accentColor: #FED430;
 
 
 // General styles:
+
 .wrapper {
     max-width: 1280px;
     width: 85%;

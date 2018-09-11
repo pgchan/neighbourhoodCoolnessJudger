@@ -4,7 +4,7 @@ import './Info.css';
 class Info extends Component {
     render() {
         return (
-            <div className="infoContent">
+            <div className="infoContainer">
                 <h2>Who are we?</h2>
                 <p>Hot Block measures neighbourhood coolness based on how many badass, loud, awesome music concert events are hosted in your area. Of course, the more book-reading, learn-y Toronto Public Libraries there are in your block, the less cool it is.
 
