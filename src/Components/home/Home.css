@@ -4,8 +4,6 @@
   background-position: center;
   background-size: cover;
   height: calc(100vh - 70px);
-  padding-top: 0.1px;
-  padding-bottom: 0.1px;
   position: relative; }
 
 .overlay {
@@ -38,7 +36,6 @@
   transition: 0.3s; }
 
 .searchBoxContainer input:focus ~ label,
-.searchBoxContainer input:hover ~ label,
 .searchBoxContainer input:valid ~ label {
   top: -1px;
   font-weight: bold;
