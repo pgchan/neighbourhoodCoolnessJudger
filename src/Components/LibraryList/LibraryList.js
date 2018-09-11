@@ -2,9 +2,9 @@ import React from 'react';
 
 const LibraryList = (props) => {
     return (
-      <div className="wrapper">
+      <div className="libraryResults">
         <h1>Library List</h1>
-        <div className="libraryResults">
+        <div className="wrapper">
           {Array.isArray(props.libraryEvents) ? 
             props.libraryEvents.map((library) => {
               return (
