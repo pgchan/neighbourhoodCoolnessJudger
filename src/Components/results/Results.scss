@@ -88,18 +88,10 @@ $accentColor: #FED430;
     }
 }
 
-// .mapContainer {
-//     margin: 0 auto;
-//     text-align: center;
-//     margin: 50px 0;
-//     clear: both;
-// }
-
 .resultsContainer {
     z-index: 200;
     position: relative;
     margin-top: 50px;
-    height: 120vh;
 
     h2 {
         @include primaryFont(30); 
