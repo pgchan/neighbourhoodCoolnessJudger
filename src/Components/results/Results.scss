@@ -29,8 +29,7 @@ $playfair: 'Playfair Display', serif;
     height: 140vh;
     color: white;
     position: relative;
-    // z-index: 100;
-
+    
     .whiteOverlay {
         position: relative;
         z-index: -100;
@@ -139,4 +138,34 @@ $playfair: 'Playfair Display', serif;
         }
     }
     
+}
+
+// REPONSIVE DESIGN
+@media only screen and (max-width: 600px) { 
+
+    .resultsPage {
+        .brush {   
+            top: -120px;
+        }
+
+        .whiteOverlay::before {
+            display: none;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .hotOrNot {
+            font-size: 4rem;
+        }
+
+        .headingContainer {
+            h4 {
+                @include secondaryFont(14); 
+                max-width: 95%;  
+            }
+        }
+    }
+
 }

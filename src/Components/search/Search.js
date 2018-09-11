@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
+// STYLES
 import '../home/Home.css';
+import logoYellow from './logoYellow.png';
 
-
-// Calls
+// CALLS
 import { getLatLong, getLibraries, getConcerts, getConcertsAgain } from '../axios/axios'
 
 class Search extends Component {
@@ -14,7 +16,6 @@ class Search extends Component {
 			lng: '',
 			libraries: [],
 			concerts: '',
-
 			showMe: false,
 			loading: false
 		}  
@@ -44,6 +45,7 @@ class Search extends Component {
 	returnLibraries = (lat,lng) => {
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(lat,lng).then(({data}) => {
+
 			if (data.status === "OK") {
 				if (data.results) {
 					this.setState({
@@ -95,6 +97,7 @@ class Search extends Component {
 			}
 		})
 	}
+
 	handleChange = (input) => {
 		this.setState({
 			[input.target.id]: input.target.value,
@@ -140,14 +143,14 @@ class Search extends Component {
 					: null
 					}
 
-					{this.state.loading ?
-					<div className="loadingBars">
-						<img src={require("./loading.gif")} alt=""/>
-					</div>
-					: null
-					} 
+				{this.state.loading ?
+				<div className="loadingBars">
+					<img src={require("./loading.gif")} alt=""/>
 				</div>
-			);
+				: null
+				} 
+			</div>
+		);
 	}
 }
 
