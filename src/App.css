@@ -6,6 +6,8 @@
 
 input#location,
 input#submit {
+  font-size: 9px;
+  font-size: 1.125rem;
   font-family: 'Open Sans', sans-serif;
   cursor: pointer; }
   input#location:focus,
@@ -23,12 +25,17 @@ ul {
   list-style: none;
   padding-left: 0; }
 
+html {
+  font-size: 62.5%; }
+
 body {
-  font-size: 62.5%;
+  font-size: 1.6rem;
   letter-spacing: 1.1px;
   background: #F2F3F3; }
 
 h1 {
+  font-size: 20px;
+  font-size: 2.5rem;
   font-family: 'Playfair Display', serif; }
 
 h1,
@@ -37,19 +44,29 @@ h1,
   font-weight: 400; }
 
 .searchInfo p {
+  font-size: 12px;
+  font-size: 1.5rem;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6; }
 
 .bold {
+  font-size: 30px;
+  font-size: 3.75rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   color: #FED430;
   text-transform: uppercase; }
 
+.floatingLabel {
+  font-size: 12px;
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif; }
+
 header {
   height: 70px;
   background: black;
-  position: relative; }
+  position: relative;
+  display: float; }
 
 .logo {
   width: 70px;
@@ -79,11 +96,30 @@ header {
     padding-bottom: 11px;
     font-size: 1.1rem; }
 
+.infoContainer {
+  position: relative; }
+  .infoContainer button {
+    font-size: 13px;
+    font-size: 1.625rem;
+    font-family: 'Playfair Display', serif;
+    background: black;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    float: right;
+    transform: translateY(20px);
+    position: absolute;
+    right: 0;
+    z-index: 800; }
+
 .resultsContainer .mapContainer {
   margin: 0 auto; }
 
 .resultsContainer {
-  padding: 20px 0 80px 0; }
+  padding: 20px 0 80px 0;
+  background: #F2F3F3; }
 
 footer {
   background: black;
@@ -91,18 +127,22 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 200;
-  font-family: 'Playfair Display', serif; }
+  z-index: 200; }
   footer .footerWrapper {
     display: float;
     margin: 0 auto;
     width: 90%;
     padding-top: 10px; }
   footer p:first-child {
+    font-size: 10px;
+    font-size: 1.25rem;
+    font-family: 'Playfair Display', serif;
     float: left;
     margin-top: 6.5px; }
   footer p:last-child {
     float: right;
+    font-size: 8px;
+    font-size: 1rem;
     font-family: 'Open Sans', sans-serif; }
 
 @media only screen and (max-width: 700px) {

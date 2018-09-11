@@ -1,10 +1,12 @@
 import React from 'react';
+import './ConcertList.css';
+
 
 const ConcertList = (props) => {
   return (
-      <div className="wrapper">
+    <div className="concertResults">
         <h1>Concert List</h1>
-        <div className="concertResults">
+        <div className="wrapper">
           {Array.isArray(props.concerts) ? 
             props.concerts.map((concert) => {
               return(

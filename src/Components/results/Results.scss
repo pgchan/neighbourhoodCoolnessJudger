@@ -72,13 +72,13 @@ $accentColor: #FED430;
             transform: translate(-50%, -50%);
         }
         h2 {
-            @include primaryFont(20);   
+            @include primaryFont(35);   
             margin-top: 150px;
 
          }
 
         h4 {
-            @include secondaryFont(12);
+            @include secondaryFont(18);
             margin-top: 13.5px;
             font-weight: 400;
             color: $secondaryColor;
@@ -94,7 +94,7 @@ $accentColor: #FED430;
     margin-top: 50px;
 
     h2 {
-        @include primaryFont(20); 
+        @include primaryFont(30); 
         color: $primaryColor;
         margin-bottom: 40px;
     }
@@ -114,7 +114,7 @@ $accentColor: #FED430;
     }
 
     .linkText {
-        @include secondaryFont(10);
+        @include secondaryFont(13.5);
         color: $primaryColor;
         font-weight: 700;
         text-decoration: none;
