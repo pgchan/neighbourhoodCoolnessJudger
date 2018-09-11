@@ -6,13 +6,15 @@ import ConcertList from '../ConcertList/ConcertList';
 
 import './Results.css';
 import brush from './brush.png';
+import Typer from '../typed/Typed';
 
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
       libraryEvents: [],
-      neighbourhoodResult: ''
+      neighbourhoodResult: '',
+      hotOrNot: '',
     }
   }
   componentDidMount() {
@@ -37,34 +39,40 @@ class Results extends Component {
       const flatListOfLibraryEvents = listOfLibraryEvents.reduce((total, amount) => {
         return total.concat(amount);
       })    
-      // 1 concert = 5 libraries. 
       
-      let coolOrUncool = ""
+      let coolOrUncool = "";
+      let hotOrNot;
+      let nerdy = "nerdy";
+      let hot = "hot";
       let numberOfLocalLibraryEvents = flatListOfLibraryEvents.length;
-      // this.coolnessCalculator(numberOfLocalLibraryEvents)
-      
       let numberOfLocalConcerts = this.props.concerts.length;
-      // let concertLibraryEventsRatio = (`${numberOfLocalConcerts}` / 2) / numberOfLocalLibraryEvents;
       let concertLibraryEventsRatio = numberOfLocalConcerts / (`${numberOfLocalLibraryEvents}` / 5);
   
       if (concertLibraryEventsRatio < 0.5) {
-        coolOrUncool = "This place is really boring. There are way too many library events going on here."
+        coolOrUncool = "This place is really boring. There are way too many library events going on here.";
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.5 && concertLibraryEventsRatio < 0.75) {
-        coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here."
+        coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here.";
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 0.75 && concertLibraryEventsRatio < 1) {
         coolOrUncool = "This place is boring. There are many library events going on here."
+        hotOrNot = nerdy;
       } else if (concertLibraryEventsRatio >= 1 && concertLibraryEventsRatio < 1.25) {
         coolOrUncool = "This place is cool! Quite lot of concerts!"
+        hotOrNot = hot;
       } else if (concertLibraryEventsRatio >= 1.25 && concertLibraryEventsRatio < 1.5) {
         coolOrUncool = "This place is quite cool! A lot of concerts!"
+        hotOrNot = hot;
       } else if (concertLibraryEventsRatio >= 1.5) {
         coolOrUncool = "This place is really cool! A LOT of concerts!"
+        hotOrNot = hot;
       }
   
       //Set the state of the large combined array so that the library list can use it to display.
       this.setState({
         libraryEvents: flatListOfLibraryEvents,
         neighbourhoodResult: coolOrUncool,
+        hotOrNot
       }) 
     } else {
       let coolOrUncool = ""
@@ -76,7 +84,7 @@ class Results extends Component {
       let concertLibraryEventsRatio = numberOfLocalConcerts / (`${numberOfLocalLibraryEvents}` / 5);
 
       if (concertLibraryEventsRatio < 0.5) {
-        coolOrUncool = "This place is really boring. There are way too many library events going on here."
+        coolOrUncool = "This place is really boring. There are way too many library events going on here.";
       } else if (concertLibraryEventsRatio >= 0.5 && concertLibraryEventsRatio < 0.75) {
         coolOrUncool = "This place is quite boring. There are quite a lot of library events going on here."
       } else if (concertLibraryEventsRatio >= 0.75 && concertLibraryEventsRatio < 1) {
@@ -103,7 +111,10 @@ class Results extends Component {
         <div className="resultsPage">
               <div className="headingContainer">
                 <div className="headingContainer__contents wrapper">
-                  <h2>The verdict is in.</h2>
+                  <h2>
+                    This block is...
+                    <span className="hotOrNot">{this.state.hotOrNot}</span>
+                  </h2>
                   <h4>{this.state.neighbourhoodResult}</h4>
                 </div>
               </div>
@@ -125,7 +136,6 @@ class Results extends Component {
                   </div>
                  
                 </div>
-                
                 <Route exact path="/concerts" render={() => 
                   <ConcertList
                     concerts={this.props.concerts} 

@@ -7,6 +7,8 @@ $thirdColor: #12886E;
 $fourthColor: #B8ECD6;
 $accentColor: #FED430;
 
+$playfair: 'Playfair Display', serif;
+
 // Mixins:
 @mixin primaryFont($fontSize) {
     font-size: $fontSize * 1px;
@@ -72,9 +74,9 @@ $accentColor: #FED430;
             transform: translate(-50%, -50%);
         }
         h2 {
-            @include primaryFont(20);   
+            @include secondaryFont(16);   
             margin-top: 150px;
-
+            font-weight: 400;
          }
 
         h4 {
@@ -85,6 +87,15 @@ $accentColor: #FED430;
             max-width: 60%;
             margin: 0 auto;
         }
+    }
+    
+    .hotOrNot {
+        text-transform: uppercase;
+        color: $accentColor;
+        display: block;
+        font-size: 6rem;
+        letter-spacing: 0.6rem;
+        font-family: $playfair;
     }
 }
 
