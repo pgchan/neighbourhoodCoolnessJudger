@@ -57,8 +57,7 @@
 .resultsContainer {
   z-index: 200;
   position: relative;
-  margin-top: 50px;
-  height: 120vh; }
+  margin-top: 50px; }
   .resultsContainer h2 {
     font-size: 20px;
     font-size: 2rem;
