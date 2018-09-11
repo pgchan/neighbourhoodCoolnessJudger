@@ -10,7 +10,13 @@
     height: 70vh;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; }
+    background-size: cover;
+    position: relative; }
+    .resultsPage .headingContainer__contents {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
     .resultsPage .headingContainer h2 {
       font-size: 20px;
       font-size: 2rem;

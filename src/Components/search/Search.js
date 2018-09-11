@@ -107,11 +107,14 @@ class Search extends Component {
 
 					<form className="search" onSubmit={this.handleSubmit}> 
 						<label htmlFor="searchbar" className="visuallyHidden">Search</label>  
-			
-						<input type="text" id="location" onChange={this.handleChange} placeholder="Type in your address here..." className="searchbar" name="searchbar" />
-					
-						<label htmlFor="submit" className="visuallyHidden">Submit</label>
-						<input type="submit" id="submit" className="submit" value="Submit"/> 
+						<div className="searchBoxContainer">
+							<input type="text" id="location" onChange={this.handleChange} className="searchbar" name="searchbar" required />
+							<label className="floatingLabel">Type in your address here</label>
+						</div>
+						<div className="searchBoxLabel">
+							<label htmlFor="submit" className="visuallyHidden">Submit</label>
+							<input type="submit" id="submit" className="submit" value="Submit"/> 
+						</div>
 					</form>
 
 					{this.state.showMe ?
