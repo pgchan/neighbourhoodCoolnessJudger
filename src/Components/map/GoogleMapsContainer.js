@@ -8,7 +8,7 @@ class GoogleMapsContainer extends Component {
 			<GoogleMaps
         libraries={this.props.libraries}
         concerts={this.props.concerts}
-		location={this.props.location}
+				location={this.props.location}
 				googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAfczrbXkzBLOm5op0o4R96gdqjJaKHrm8&v=3.exp&libraries=geometry,drawing,places`}
 				loadingElement={<div style={{ height: `100%` }} />}
 				containerElement={<div style={{height: `550px`, width: `100%` }}  />}

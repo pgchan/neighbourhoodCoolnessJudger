@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import './setup.css';
 
@@ -8,7 +8,6 @@ import Home from './Components/home/Home';
 import Results from './Components/results/Results';
 import { getLibraryEvents } from './Components/axios/axios';
 import logoYellow from './styles/assets/logoYellow.png';
-// import Logo from './styles/assets/Logo';
 
 class App extends Component {
 	constructor() {
@@ -57,15 +56,13 @@ class App extends Component {
 						{this.state.lat && this.state.lng && this.state.concerts && this.state.libraries ?
 							<main className="results">
 							<div className="logoContainer wrapper">
-								<img className="logo" src={logoYellow} />
+								<img className="logo" src={logoYellow} alt="Hot Block Logo"/>
 							</div>
-								{/* <Redirect to="/location" /> */}
-									<Route path="/" render={() => 
+									<Route exact path="/" render={() => 
 										<Results
 											location={location}
 											concerts={this.state.concerts}
 											libraries={this.state.libraries}
-											concerts={this.state.concerts}
 											libraryEvents={this.state.libraryEvents}
 										/>}
 									/> 
@@ -73,7 +70,7 @@ class App extends Component {
 							<div className="homeBackground">
 							<header>
 								<div className="logoContainer wrapper">
-									<img className="logo" src={logoYellow} />
+									<img className="logo" src={logoYellow} alt="Hot Block Logo"/>
 								</div>
 							</header>
 								<Route exact path="/" render={() =>

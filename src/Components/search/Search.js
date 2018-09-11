@@ -23,29 +23,49 @@ class Search extends Component {
 	returnLatLong = (address) => {
 		//Pass the address to the axios call which is broken up into its own component.
 		getLatLong(address).then(({data}) => {
-			const geoData = data.results[0].geometry.location;
-			this.setState({
-				lat: geoData.lat,
-				lng: geoData.lng
-			})
-			this.returnLibraries(this.state.lat, this.state.lng);
-			this.returnConcerts(this.state.lat, this.state.lng);
-			this.props.setLatLng(this.state.lat, this.state.lng);
+			if (data.status === "OK") {
+				const geoData = data.results[0].geometry.location;
+				this.setState({
+					lat: geoData.lat,
+					lng: geoData.lng
+				})
+				this.returnLibraries(this.state.lat, this.state.lng);
+				this.returnConcerts(this.state.lat, this.state.lng);
+				this.props.setLatLng(this.state.lat, this.state.lng);
+			} else {
+				this.setState({
+					showMe: true,
+					loading: false,
+				})
+			}
 		});
 	}
 
 	returnLibraries = (lat,lng) => {
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(lat,lng).then(({data}) => {
-			this.setState({
-				libraries: data.results,
-			})
-			this.props.setLibraries(this.state.libraries);
+			if (data.status === "OK") {
+				if (data.results) {
+					this.setState({
+						libraries: data.results,
+					})
+					this.props.setLibraries(this.state.libraries);
+				} else {
+					this.setState({
+						libraries: 'There are no libraries in this area',
+					})
+					this.props.setLibraries(this.state.libraries);
+				}
+			} else {
+				this.setState({
+					libraries: 'There are no libraries in this area',
+				})
+				this.props.setLibraries(this.state.libraries);
+			}
 		});
 	}
 
 	returnConcerts = (lat,lng) => {
-		let concertArray = [];
 		getConcerts(lat,lng).then(({data}) => {
 			if (data._embedded) {
 				const pages = [];
@@ -126,7 +146,7 @@ class Search extends Component {
 
 					{this.state.loading ?
 					<div className="loadingBars">
-						<img src={require("./loading.gif")} />
+						<img src={require("./loading.gif")} alt=""/>
 					</div>
 					: null
 					} 
