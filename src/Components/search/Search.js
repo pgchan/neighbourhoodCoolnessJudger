@@ -152,6 +152,3 @@ class Search extends Component {
 }
 
 export default Search;
-
-// id = "searchbar"
-// htmlFor = "searchbar"
