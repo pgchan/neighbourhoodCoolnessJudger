@@ -144,7 +144,7 @@ class Search extends Component {
 
 					{this.state.loading ?
 					<div className="loadingBars">
-						<img src={require("./loading.gif")} />
+						<img src={require("./loading.gif")} alt=""/>
 					</div>
 					: null
 					} 

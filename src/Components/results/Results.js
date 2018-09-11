@@ -31,6 +31,7 @@ class Results extends Component {
         })
         //Push each list of events for each library into the the listOfLibrary Arrays. This will create an array with multiple arrays for each location. 
         listOfLibraryEvents.push(filteredEvents);
+        return null;
       })
       //Use Reduce to create a new array that combines all of the arrays into one large array so that we can map through it. 
       const flatListOfLibraryEvents = listOfLibraryEvents.reduce((total, amount) => {
