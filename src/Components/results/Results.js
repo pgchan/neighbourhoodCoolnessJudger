@@ -76,10 +76,10 @@ class Results extends Component {
       <Router>
         <div className="resultsPage">
               <div className="headingContainer">
-              <div className="wrapper">
-                <h2>The verdict is in.</h2>
-                <h4>{this.state.neighbourhoodResult}</h4>
-              </div>
+                <div className="headingContainer__contents wrapper">
+                  <h2>The verdict is in.</h2>
+                  <h4>{this.state.neighbourhoodResult}</h4>
+                </div>
               </div>
 
             {/* <div className="wrapper"> */}
