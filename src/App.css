@@ -25,7 +25,8 @@ ul {
 
 body {
   font-size: 62.5%;
-  letter-spacing: 1.1px; }
+  letter-spacing: 1.1px;
+  background: #F2F3F3; }
 
 h1 {
   font-family: 'Playfair Display', serif; }
