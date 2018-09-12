@@ -10,7 +10,6 @@ const GoogleMaps = withScriptjs(withGoogleMap((props) => {
 
   if (Array.isArray(props.libraries)) {
     libraryLocations = props.libraries.map((place) => {
-      console.log(place);
       return <LibraryMarkers location={place.geometry.location} library={place} key={place.id}/>
     });
   }
