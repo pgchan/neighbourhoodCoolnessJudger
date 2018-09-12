@@ -101,36 +101,36 @@ export const getConcerts = (lat,lng) => {
 }
 
 export const getConcertsAgain = (lat,lng,i) => {
-    return axios({
-      url: 'https://proxy.hackeryou.com',
-      method: 'GET',
-      dataResponse: 'json',
-      paramsSerializer: function (params) {
-        return Qs.stringify(params, {
-          arrayFormat: 'brackets'
-        })
-      },
+  return axios({
+    url: 'https://proxy.hackeryou.com',
+    method: 'GET',
+    dataResponse: 'json',
+    paramsSerializer: function (params) {
+      return Qs.stringify(params, {
+        arrayFormat: 'brackets'
+      })
+    },
+    params: {
+      reqUrl: 'https://app.ticketmaster.com/discovery/v2/events.json',
       params: {
-        reqUrl: 'https://app.ticketmaster.com/discovery/v2/events.json',
-        params: {
-          latlong: `${lat},${lng}`,
-          radius: 4,
-          unit: 'km',
-          startDateTime: startDateTime,
-          endDateTime: endDateTime,
-          sort: 'date,asc',
-          size: 200,
-          page: i,
-          classificationName: 'music',
-          apikey: ticketMasterApi,
-        },
-        proxyHeaders: {
-          'header_params': 'value'
-        },
-        xmlToJSON: false,
-        useCache: true,
-      }
-    })
+        latlong: `${lat},${lng}`,
+        radius: 4,
+        unit: 'km',
+        startDateTime: startDateTime,
+        endDateTime: endDateTime,
+        sort: 'date,asc',
+        size: 200,
+        page: i,
+        classificationName: 'music',
+        apikey: ticketMasterApi,
+      },
+      proxyHeaders: {
+        'header_params': 'value'
+      },
+      xmlToJSON: false,
+      useCache: true,
+    }
+  })
 } 
 
 export const getLibraryEvents = () => {
