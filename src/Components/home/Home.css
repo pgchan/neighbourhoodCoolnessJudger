@@ -1,5 +1,5 @@
 .homeBackground {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 50%, rgba(0, 0, 0, 0.95) 90%), url("./homeBackground.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) 0%, transparent 70%, rgba(0, 0, 0, 0.95) 90%), url("./homeBackground.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -13,6 +13,15 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%); }
+  .searchContainer .logo {
+    margin: 0 auto;
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 150px; }
 
 .searchBoxContainer {
   position: relative;
