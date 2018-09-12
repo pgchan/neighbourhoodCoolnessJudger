@@ -119,8 +119,9 @@ class Search extends Component {
 	render() {
 			return (
 				<div className="searchContainer wrapper">
+					<h1>Welcome to</h1>
 					<div className="searchInfo">
-						<h1>Welcome to <br/><span className="bold">Hot Block</span></h1>
+						<img className="logo" src={logoYellow} alt="Hot Block Logo" />
 						<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
 					</div>
 
