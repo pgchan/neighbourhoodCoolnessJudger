@@ -66,8 +66,9 @@ body {
     background: #F2F3F3;
 }
 
-h1 {
-    @include primaryFont(15);
+.searchContainer h1 {
+    transform: translateY(70%);
+    @include secondaryFont(20);
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -80,7 +81,11 @@ h1,
 
 .searchInfo p {
     @include secondaryFont(12);  
-    line-height: 1.6;
+    line-height: 1.6; 
+}
+
+.searchInfo p {
+    margin-top: 200px;
 }
 
 .bold {
@@ -185,8 +190,6 @@ footer {
 
 
 // REPONSIVE DESIGN
-
-
 @media only screen and (max-width: 800px) { 
     .bold {font-size: 5rem}
 
@@ -194,9 +197,9 @@ footer {
 
 @media only screen and (max-width: 700px) { 
     .homeBackground .searchContainer {
-        width: 80%
+        width: 80%;
     }
-    
+
     .concertListLink {
         width: 100%;
     }
@@ -214,6 +217,7 @@ footer {
         width: 100%;
         & input {width: 100%;}
     }
+
     .eventContainer {width: 100%;}
     .resultsContainer .wrapper {border-top: 1px solid lightgrey;}
     .eventContainer:hover {transform: scale(1.1);}
@@ -221,9 +225,22 @@ footer {
 
 @media only screen and (max-width:511px) {
     .bold {font-size: 3rem;}
-    .searchInfo h1 {
-        margin-top: 145px;
+    .searchContainer h1 {
+        margin-top: 120px;
         font-size: 2rem;
+    }
+
+    .homeBackground .searchContainer {
+        .logo {
+            top: 180px;
+            width: 150px;
+            height: 100px;
+        }
+
+        .searchInfo p {
+            margin-top: 130px;
+            @include secondaryFont(9.5);
+        }  
     }
 }
 

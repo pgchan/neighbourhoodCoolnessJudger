@@ -24,6 +24,18 @@ $accentColor: #FED430;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    .logo {
+        margin: 0 auto;
+        display: inline-block;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        width: 200px;
+        height: 150px;
+    }
+    
 }
 
 .searchBoxContainer {
@@ -107,7 +119,6 @@ form {
 .search #submit {font-size: 1.6rem;}
 
 .addressValidator {
-    // text-align: center;
     margin: 0 auto;
     text-align: center;
     position: absolute;

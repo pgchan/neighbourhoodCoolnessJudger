@@ -13,6 +13,15 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%); }
+  .searchContainer .logo {
+    margin: 0 auto;
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 150px; }
 
 .searchBoxContainer {
   position: relative;
