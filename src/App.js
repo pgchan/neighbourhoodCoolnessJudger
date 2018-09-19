@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import './App.css';
 import './setup.css';
-import logoYellow from './styles/assets/logoYellow.png';
 
 // COMPONENTS
 import Home from './Components/home/Home';
@@ -80,7 +79,6 @@ class App extends Component {
 			lat: this.state.lat,
 			lng: this.state.lng
 		};
-		console.log(this.state.concerts.length > 0 && this.state.libraries.length > 0);
 		return (
 			<Router>
 				<div className="App">
@@ -114,8 +112,7 @@ class App extends Component {
 				/>
 				<footer>
 					<div className="clearfix footerWrapper">
-						<p>&copy; 2018</p>
-						<p>Made by David Tran, Pratik Gauchan & Victoria Chan</p>
+						<p>&copy; 2018. Created by David Tran, Pratik Gauchan & Victoria Chan</p>
 					</div>
 				</footer> 
 				</div>
