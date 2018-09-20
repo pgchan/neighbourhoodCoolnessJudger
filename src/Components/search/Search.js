@@ -24,6 +24,7 @@ class Search extends Component {
 	returnLatLong = (address) => {
 		//Pass the address to the axios call which is broken up into its own component.
 		getLatLong(address).then(({data}) => {
+			//If the status call returns an OK, then get the lat and long. Else show the error message.
 			if (data.status === "OK") {
 				const geoData = data.results[0].geometry.location;
 				this.setState({
@@ -45,7 +46,7 @@ class Search extends Component {
 	returnLibraries = (lat,lng) => {
 		//Get the latlong from returnLatLong. Pass it to another axios call called getLibraries. Set the state of libraries and then pass this state back to app.js so the Results page can access it next.
 		getLibraries(lat,lng).then(({data}) => {
-
+			//If status call is ok then get the libraries if there are results. Else Set libraries to a string.
 			if (data.status === "OK") {
 				if (data.results) {
 					this.setState({
@@ -69,6 +70,7 @@ class Search extends Component {
 
 	returnConcerts = (lat,lng) => {
 		getConcerts(lat,lng).then(({data}) => {
+			//If the data exists then check how many total pages the call has in total. Push the amount of calls required into an array called pages. Map through the total number of pages and call getConcerts again that many times to get the entire return. 
 			if (data._embedded) {
 				const pages = [];
 				for (let i = 0; i < data.page.totalPages; i++) {
@@ -119,8 +121,9 @@ class Search extends Component {
 	render() {
 			return (
 				<div className="searchContainer wrapper">
+					<h1>Welcome to</h1>
 					<div className="searchInfo">
-						<h1>Welcome to <br/><span className="bold">Hot Block</span></h1>
+						<img className="logo" src={logoYellow} alt="Hot Block Logo" />
 						<p>Enter your address below to find out whether your neighbourhood is a hot block – or a nerdy dungeon.</p>
 					</div>
 

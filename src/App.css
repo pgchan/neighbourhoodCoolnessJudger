@@ -33,10 +33,11 @@ body {
   letter-spacing: 1.1px;
   background: #F2F3F3; }
 
-h1 {
-  font-size: 15px;
-  font-size: 1.875rem;
-  font-family: 'Playfair Display', serif;
+.searchContainer h1 {
+  transform: translateY(70%);
+  font-size: 20px;
+  font-size: 2.5rem;
+  font-family: 'Open Sans', sans-serif;
   font-family: 'Open Sans', sans-serif; }
 
 h1,
@@ -49,6 +50,9 @@ h1,
   font-size: 1.5rem;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6; }
+
+.searchInfo p {
+  margin-top: 200px; }
 
 .bold {
   font-size: 40px;
@@ -95,14 +99,17 @@ header {
   line-height: 18px;
   box-shadow: 0 10px 6px -6px #777;
   border: 1px solid lightgrey;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  transition: all 300ms ease; }
   .eventContainer:hover {
-    transform: scale(1.3);
-    transition: 0.6s; }
+    transform: scale(1.3); }
   .eventContainer__header {
     font-weight: bold;
     padding-bottom: 11px;
     font-size: 1.7rem; }
+
+.logoContainer {
+  display: block; }
 
 .resultsContainer .mapContainer {
   margin: 0 auto;
@@ -120,8 +127,6 @@ footer {
   font-family: 'Open Sans', sans-serif;
   background: black;
   color: #F5F5F5;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   z-index: 200;
   text-align: center;
@@ -130,9 +135,7 @@ footer {
     display: float;
     margin: 0 auto;
     width: 90%;
-    padding-top: 10px; }
-    footer .footerWrapper p {
-      padding-bottom: 7px; }
+    padding: 1rem 0; }
 
 @media only screen and (max-width: 800px) {
   .bold {
@@ -165,9 +168,18 @@ footer {
 @media only screen and (max-width: 511px) {
   .bold {
     font-size: 3rem; }
-  .searchInfo h1 {
-    margin-top: 145px;
-    font-size: 2rem; } }
+  .searchContainer h1 {
+    margin-top: 120px;
+    font-size: 2rem; }
+  .homeBackground .searchContainer .logo {
+    top: 180px;
+    width: 150px;
+    height: 100px; }
+  .homeBackground .searchContainer .searchInfo p {
+    margin-top: 130px;
+    font-size: 9.5px;
+    font-size: 1.1875rem;
+    font-family: 'Open Sans', sans-serif; } }
 
 @media only screen and (max-width: 400px) {
   .footerWrapper p {
