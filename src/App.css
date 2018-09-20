@@ -105,7 +105,8 @@ header {
     font-size: 1.7rem; }
 
 .resultsContainer .mapContainer {
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 100px; }
 
 .resultsContainer {
   padding: 20px 0 80px 0;
@@ -130,6 +131,8 @@ footer {
     margin: 0 auto;
     width: 90%;
     padding-top: 10px; }
+    footer .footerWrapper p {
+      padding-bottom: 7px; }
 
 @media only screen and (max-width: 800px) {
   .bold {

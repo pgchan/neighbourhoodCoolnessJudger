@@ -149,8 +149,10 @@ header {
 
 
 // MAP CONTAINER
+
 .resultsContainer .mapContainer {
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .resultsContainer {
@@ -177,6 +179,7 @@ footer {
         margin: 0 auto;
         width: 90%;
         padding-top: 10px;
+        & p {padding-bottom: 7px;}
     }
 }
 
